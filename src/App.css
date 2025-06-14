@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Comfortaa";
+  src: local("Comfortaa"),
+    url("./assets/fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
+}
+
 #root {
   max-width: 1600px;
 }
