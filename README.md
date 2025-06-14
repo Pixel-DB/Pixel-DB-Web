@@ -1,3 +1,5 @@
+![Logo](https://i.ibb.co/sJNyCH7J/Banner.png)
+
 # PixelDB Website
 
 Pixel-BD is an open-source online platform where anyone can upload, share, and showcase their pixel art creations with the community.
