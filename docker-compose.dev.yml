@@ -1,5 +1,5 @@
 services:
-  pixeldb-web:
+  pixeldb-web-dev:
     build:
       context: .
       dockerfile: Dockerfile.dev
