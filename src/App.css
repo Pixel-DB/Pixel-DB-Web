@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Comfortaa";
-  src: local("Comfortaa"),
-    url("./assets/fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
 }
 
 #root {
