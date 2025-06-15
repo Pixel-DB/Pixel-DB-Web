@@ -1,16 +1,17 @@
 import "./App.css";
+import Banner from "./components/Banner/Banner";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <NavBar />
-      <h1 className="h-[90vh] font-extrabold content-center text-center">
-        PixelDB Placeholder
-      </h1>
+      <div className="flex items-center justify-center">
+        <Banner />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
