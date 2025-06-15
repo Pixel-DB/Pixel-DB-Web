@@ -19,7 +19,7 @@ const item = [
 
 const Navbar = () => {
   return (
-    <div className="w-full flex items-center bg-amber-300 justify-center">
+    <div className="w-full flex items-center bg-amber-400 justify-center">
       <div className="w-[1300px] flex items-center">
         <NavbarLogo />
 
