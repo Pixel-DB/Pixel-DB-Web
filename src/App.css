@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @font-face {
   font-family: "Comfortaa";
-  src: url("/fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
+  src: url("./assets/Comfortaa-VariableFont_wght.ttf") format("truetype");
   font-display: swap;
 }
 
