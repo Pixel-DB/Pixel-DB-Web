@@ -1,5 +1,6 @@
-import Logo from "../../assets/ColorPalatte.svg";
+import LoginButton from "./LoginButton";
 import { NavbarItems } from "./NavbarItems";
+import NavbarLogo from "./NavbarLogo";
 
 const item = [
   {
@@ -20,16 +21,11 @@ const Navbar = () => {
   return (
     <div className="w-full flex items-center bg-amber-300 justify-center">
       <div className="w-[1300px] flex items-center">
-        <div className="p-2 flex items-center justify-center flex-1">
-          <img src={Logo} className="w-[50px]" />
-          <h1 className="pl-1 font-extrabold text-2xl">PixelDB</h1>
-        </div>
+        <NavbarLogo />
 
         <NavbarItems item={item} />
 
-        <div className="p-2 flex items-center justify-center text-xl font-medium flex-1">
-          <a>Login</a>
-        </div>
+        <LoginButton />
       </div>
     </div>
   );
