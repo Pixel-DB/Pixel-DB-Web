@@ -1,9 +1,11 @@
-import React from "react";
+import Logo from "../../assets/ColorPalatte.svg";
 
 const FooterCopyright = () => {
   return (
-    <div>
-      <h1>© 2025 PixelDB. All pixel rights reserved.</h1>
+    <div className="flex items-center">
+      <span>© 2025</span>
+      <img src={Logo} className="h-7 pl-2 pr-1" alt="PixelDB Logo" />
+      <span>PixelDB. All pixel rights reserved.</span>
     </div>
   );
 };

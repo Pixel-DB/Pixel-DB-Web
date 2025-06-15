@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <h1 className="h-[90vh] text-7xl font-extrabold content-center text-center">
+      <h1 className="h-[90vh] font-extrabold content-center text-center">
         PixelDB Placeholder
       </h1>
       <Footer />
