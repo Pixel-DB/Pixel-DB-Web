@@ -1,5 +1,6 @@
 services:
   pixeldb-web-dev:
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile.dev
