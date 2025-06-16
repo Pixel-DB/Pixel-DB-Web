@@ -4,15 +4,15 @@ const Banner = () => {
   return (
     <div className="h-[80vh] max-w-[1000px] w-full flex items-center justify-between px-2">
       <div className="flex flex-col space-y-1 max-w-xl">
-        <h1 className="text-6xl font-normal text-green-500">
+        <h1 className="text-6xl font-normal text-text">
           Welcome to <br />
-          <span className="text-8xl font-extrabold text-blue-700 leading-tight">
+          <span className="text-8xl font-extrabold text-secondary leading-tight">
             PixelDB
           </span>
         </h1>
         <p className="text-xl text-gray-700">
-          The ultimate database for all your pixel art and color palette needs.
-          Organize, explore, and share your creations with the world.
+          Pixel-BD is an open-source online platform where anyone can upload,
+          share, and showcase their pixel art creations with the community.
         </p>
       </div>
       <div className="flex items-center justify-center">
