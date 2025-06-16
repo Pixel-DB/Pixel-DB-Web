@@ -1,4 +1,14 @@
 @import "tailwindcss";
+
+/* Tailwind CSS Colors */
+@theme {
+  --color-text: #00060a; /* Black */
+  --color-background: #f5fcff; /* White */
+  --color-primary: #ffea40; /* Yellow */
+  --color-secondary: #078fff; /* Light Red */
+  --color-accent: #ff817b; /* Light Blue */
+}
+
 @font-face {
   font-family: "Comfortaa";
   src: url("./assets/fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
