@@ -3,8 +3,8 @@ import FooterLinks from "./FooterLinks";
 
 const Footer = () => {
   return (
-    <div className="w-full flex items-center bg-amber-400 justify-center p-4 text-center">
-      <div className="w-[1300px] flex items-center justify-between">
+    <div className="w-full flex items-center bg-amber-400 justify-center p-4 text-center mt-auto">
+      <div className="w-full max-w-[1300px] flex items-center justify-between">
         <FooterCopyright />
 
         <FooterLinks />
