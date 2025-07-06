@@ -1,5 +1,5 @@
 const NoPage = () => {
-  return <div>NoPage</div>;
+  return <div>404 Not Found :(</div>;
 };
 
 export default NoPage;
