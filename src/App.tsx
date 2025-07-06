@@ -1,19 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Banner from "./components/Banner/Banner";
-import Footer from "./components/Footer/Footer";
-import NavBar from "./components/Navbar/Navbar";
-import Alert from "./components/ui/Alert/Alert";
+import Home from "./pages/Home";
+import NoPage from "./pages/NoPage";
+import Layout from "./pages/Layout";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <NavBar />
-      <div className="flex items-center justify-center">
-        <Banner />
-      </div>
-      <Alert>This Service is still under Production</Alert>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
