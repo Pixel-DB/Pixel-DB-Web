@@ -5,8 +5,8 @@
   --color-text: #00060a; /* Black */
   --color-background: #f5fcff; /* White */
   --color-primary: #ffea40; /* Yellow */
-  --color-secondary: #078fff; /* Light Red */
-  --color-accent: #ff817b; /* Light Blue */
+  --color-secondary: #078fff; /* Light Blue */
+  --color-accent: #ff817b; /* Light Red */
 }
 
 @font-face {
