@@ -1,5 +1,5 @@
 interface Props {
-  type: "email" | "password" | "firstName" | "lastName";
+  type: "email" | "password" | "firstName" | "lastName" | "username";
   name: string;
   label?: string;
 }
