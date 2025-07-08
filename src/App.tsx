@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="auth/login" element={<Login />} />
+          <Route path="auth/register" element={<Register />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
