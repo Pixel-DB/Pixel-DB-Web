@@ -9,11 +9,28 @@ const RegisterCard = () => {
       </div>
       <div className="flex flex-col gap-4">
         <div>
+          <Input type="email" name="email" label="Email" />
+        </div>
+        <div>
+          <Input type="username" name="Username" label="Username" />
+        </div>
+        <div className="flex flex-row max-w-[400px] w-full gap-2">
+          <Input type="firstName" name="firstName" label="First Name" />
+          <Input type="lastName" name="lastName" label="Last Name" />
+        </div>
+        <div>
           <Input type="password" name="Password" label="Password" />
+        </div>
+        <div>
+          <Input
+            type="password"
+            name="ConfirmPassword"
+            label="Confirm Password"
+          />
         </div>
         <div className="pt-4">
           <Button color="accent" wFull>
-            Login
+            Register
           </Button>
         </div>
       </div>
