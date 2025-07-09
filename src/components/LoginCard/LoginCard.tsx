@@ -4,15 +4,20 @@ import Button from "../ui/Button/Button";
 import { useState } from "react";
 
 const LoginCard = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleInputChange = (value: string) => {
-    setInputValue(value);
+  const handleEmailChange = (value: string) => {
+    setEmail(value);
+  };
+  const handlePasswordChange = (value: string) => {
+    setPassword(value);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted with:", inputValue);
+    console.log("EmailForm submitted with:", email);
+    console.log("PasswordForm submitted with:", password);
   };
 
   return (
@@ -29,7 +34,7 @@ const LoginCard = () => {
             type="email"
             name="email"
             label="Email"
-            onInput={handleInputChange}
+            onInput={handleEmailChange}
           />
         </div>
         <div>
@@ -37,7 +42,7 @@ const LoginCard = () => {
             type="password"
             name="password"
             label="Password"
-            onInput={handleInputChange}
+            onInput={handlePasswordChange}
           />
         </div>
         <div className="pt-4">
