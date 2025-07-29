@@ -14,7 +14,7 @@ const useRegister = () => {
 
   const register = async (credentials: RegisterData) => {
     await apiClient
-      .post("/auth/register", {
+      .post("/user", {
         email: credentials.email,
         password: credentials.password,
         username: credentials.username,
