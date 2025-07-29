@@ -1,38 +1,85 @@
+import { useState } from "react";
 import Button from "../ui/Button/Button";
 import Input from "../ui/TextInput/Input";
+import Errors from "../Errors/Errors";
+import useRegister from "@/hooks/useRegister";
 
 const RegisterCard = () => {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    username: "",
+    firstName: "",
+    lastName: "",
+  });
+  const { register, statusCode } = useRegister();
+
+  const handleChange = (field: string, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await register(form);
+  };
+
   return (
-    <div className="bg-white flex flex-col max-w-[450px] w-full rounded-lg border-2 border-slate-800 border-3d">
+    <form
+      className="bg-white flex flex-col max-w-[450px] w-full rounded-lg border-2 border-slate-800 border-3d"
+      onSubmit={handleSubmit}
+    >
       <div className="flex justify-center w-full text-3xl font-extrabold text-slate-800 p-5">
         <h1>Register</h1>
       </div>
       <div className="flex flex-col gap-4">
         <div>
-          <Input type="email" name="email" label="Email" />
+          <Input
+            type="email"
+            name="email"
+            label="Email"
+            onInput={(val) => handleChange("email", val)}
+          />
         </div>
         <div>
-          <Input type="username" name="Username" label="Username" />
-        </div>
-        <div className="flex flex-row max-w-[400px] w-full gap-2">
-          <Input type="firstName" name="firstName" label="First Name" />
-          <Input type="lastName" name="lastName" label="Last Name" />
+          <Input
+            type="username"
+            name="Username"
+            label="Username"
+            onInput={(val) => handleChange("username", val)}
+          />
         </div>
         <div>
-          <Input type="password" name="Password" label="Password" />
+          <Input
+            type="firstName"
+            name="firstName"
+            label="First Name"
+            onInput={(val) => handleChange("firstName", val)}
+          />
+        </div>
+        <div>
+          <Input
+            type="lastName"
+            name="lastName"
+            label="Last Name"
+            onInput={(val) => handleChange("lastName", val)}
+          />
         </div>
         <div>
           <Input
             type="password"
-            name="ConfirmPassword"
-            label="Confirm Password"
+            name="Password"
+            label="Password"
+            onInput={(val) => handleChange("password", val)}
           />
         </div>
         <div className="pt-4">
-          <Button color="accent" wFull>
+          <Button color="accent" wFull type="submit">
             Register
           </Button>
         </div>
+      </div>
+      <div className="pt-2">
+        {statusCode && <Errors onSuccess="/">{statusCode}</Errors>}
       </div>
       <div className="max-w-[400px] w-full flex justify-center pt-3 pb-2 text-gray-700">
         <p>
@@ -42,7 +89,7 @@ const RegisterCard = () => {
           </a>
         </p>
       </div>
-    </div>
+    </form>
   );
 };
 
