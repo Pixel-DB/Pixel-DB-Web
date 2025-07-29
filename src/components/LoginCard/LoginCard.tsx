@@ -2,22 +2,20 @@ import "./LoginCard.css";
 import Input from "../ui/TextInput/Input";
 import Button from "../ui/Button/Button";
 import { useState } from "react";
+import useLogin from "@/hooks/useLogin";
+import Errors from "../Errors/Errors";
 
 const LoginCard = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ email: "", password: "" });
+  const { login, statusCode } = useLogin();
 
-  const handleEmailChange = (value: string) => {
-    setEmail(value);
-  };
-  const handlePasswordChange = (value: string) => {
-    setPassword(value);
+  const handleChange = (field: string, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("EmailForm submitted with:", email);
-    console.log("PasswordForm submitted with:", password);
+    await login(form);
   };
 
   return (
@@ -34,7 +32,7 @@ const LoginCard = () => {
             type="email"
             name="email"
             label="Email"
-            onInput={handleEmailChange}
+            onInput={(val) => handleChange("email", val)}
           />
         </div>
         <div>
@@ -42,7 +40,7 @@ const LoginCard = () => {
             type="password"
             name="password"
             label="Password"
-            onInput={handlePasswordChange}
+            onInput={(val) => handleChange("password", val)}
           />
         </div>
         <div className="pt-4">
@@ -51,7 +49,10 @@ const LoginCard = () => {
           </Button>
         </div>
       </div>
-      <div className="max-w-[400px] w-full flex justify-center pt-3 pb-2 text-gray-700">
+      <div className="pt-2">
+        {statusCode && <Errors onSuccess="/">{statusCode}</Errors>}
+      </div>
+      <div className="max-w-[400px] w-full flex justify-center pt-1 pb-2 text-gray-700">
         <p>
           Don't have an Account?{" "}
           <a href="/auth/register" className="underline">
