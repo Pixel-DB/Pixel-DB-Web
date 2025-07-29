@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Button from "../ui/Button/Button";
 import Input from "../ui/TextInput/Input";
-import useLogin from "@/hooks/useLogin";
 import Errors from "../Errors/Errors";
+import useRegister from "@/hooks/useRegister";
 
 const RegisterCard = () => {
   const [form, setForm] = useState({
@@ -11,9 +11,8 @@ const RegisterCard = () => {
     username: "",
     firstName: "",
     lastName: "",
-    confirmPassword: "",
   });
-  const { login, statusCode } = useLogin();
+  const { register, statusCode } = useRegister();
 
   const handleChange = (field: string, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -21,7 +20,7 @@ const RegisterCard = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await login(form);
+    await register(form);
   };
 
   return (
@@ -49,13 +48,15 @@ const RegisterCard = () => {
             onInput={(val) => handleChange("username", val)}
           />
         </div>
-        <div className="flex flex-row max-w-[400px] w-full gap-2">
+        <div>
           <Input
             type="firstName"
             name="firstName"
             label="First Name"
             onInput={(val) => handleChange("firstName", val)}
           />
+        </div>
+        <div>
           <Input
             type="lastName"
             name="lastName"
@@ -69,13 +70,6 @@ const RegisterCard = () => {
             name="Password"
             label="Password"
             onInput={(val) => handleChange("password", val)}
-          />
-        </div>
-        <div>
-          <Input
-            type="password"
-            name="ConfirmPassword"
-            label="Confirm Password"
           />
         </div>
         <div className="pt-4">
