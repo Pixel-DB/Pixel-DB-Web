@@ -24,7 +24,6 @@ const useRegister = () => {
       .then(function (response) {
         console.log(response);
         setStatusCode(response.status);
-        localStorage.setItem("token", response.data.data.Token);
       })
       .catch(function (error) {
         setStatusCode(error.status);
