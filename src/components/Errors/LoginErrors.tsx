@@ -16,9 +16,9 @@ const Errors = ({ children, onSuccess = "/" }: Props) => {
   });
 
   if (children == 400) {
-    return <div className="text-red-600">Invalid username or password</div>;
+    return <div className="text-red-500">Invalid username or password</div>;
   } else {
-    return <div className="text-red-600">Error: {children}</div>;
+    return <div className="text-red-500">Error: {children}</div>;
   }
 };
 
