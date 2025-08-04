@@ -21,11 +21,13 @@ const useUser = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
     const fetchUser = async () => {
       try {
         const response = await apiClient.get<UserResponse>("/user", {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
+            Authorization: `Bearer ${token}`,
           },
         });
         console.log(response.data);
