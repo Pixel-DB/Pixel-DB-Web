@@ -16,9 +16,9 @@ const Errors = ({ children, onSuccess = "/auth/login" }: Props) => {
   });
 
   if (children == 409) {
-    return <div className="text-red-600">Email/Username already taken!</div>;
+    return <div className="text-red-500">Email/Username already taken!</div>;
   } else {
-    return <div className="text-red-600">Error: {children}</div>;
+    return <div className="text-red-500">Error: {children}</div>;
   }
 };
 
