@@ -1,47 +1,35 @@
 import "./LoginCard.css";
 import Input from "../ui/TextInput/Input";
 import Button from "../ui/Button/Button";
-import { useState } from "react";
 import useLogin from "@/hooks/useLogin";
 import Errors from "../Errors/Errors";
+import { useForm, type SubmitHandler } from "react-hook-form";
+
+interface FieldValues {
+  email: string;
+  password: string;
+}
 
 const LoginCard = () => {
-  const [form, setForm] = useState({ email: "", password: "" });
   const { login, statusCode } = useLogin();
+  const { register, handleSubmit } = useForm<FieldValues>();
 
-  const handleChange = (field: string, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await login(form);
-  };
+  const onSubmit: SubmitHandler<FieldValues> = (data) => login(data);
 
   return (
     <form
       className="bg-white flex flex-col max-w-[450px] w-full rounded-lg border-2 border-slate-800 border-3d"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex justify-center w-full text-3xl font-extrabold text-slate-800 p-5">
         <h1>Login</h1>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-full px-5">
         <div>
-          <Input
-            type="email"
-            name="email"
-            label="Email"
-            onInput={(val) => handleChange("email", val)}
-          />
+          <Input type="email" label="Email" {...register("email")} />
         </div>
         <div>
-          <Input
-            type="password"
-            name="password"
-            label="Password"
-            onInput={(val) => handleChange("password", val)}
-          />
+          <Input type="password" label="Password" {...register("password")} />
         </div>
         <div className="pt-4">
           <Button color="accent" wFull type="submit">

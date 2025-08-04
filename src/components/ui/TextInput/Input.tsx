@@ -1,38 +1,42 @@
-import { useRef } from "react";
+import React, { forwardRef } from "react";
 
-interface Props {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   type: "email" | "password" | "firstName" | "lastName" | "username";
-  name: string;
   label?: string;
-  onInput: (value: string) => void;
 }
 
-const Input = ({ type, name, label, onInput }: Props) => {
-  const ref = useRef<HTMLInputElement>(null);
+const Input = forwardRef<HTMLInputElement, Props>(
+  ({ type, name, label, ...props }, ref) => {
+    const placeholderText = {
+      email: "john.doe@gmail.com",
+      password: "Please enter your password",
+      firstName: "John",
+      lastName: "Doe",
+      username: "john_doe123",
+    };
 
-  const placeholderText = {
-    email: "john.doe@gmail.com",
-    password: "Please enter your password",
-    firstName: "John",
-    lastName: "Doe",
-    username: "john_doe123",
-  };
-
-  return (
-    <>
-      <label htmlFor={name} className="text-slate-800">
-        {label}
-      </label>
-      <input
-        ref={ref}
-        name={name}
-        type={type}
-        className="border-2 border-secondary focus:outline focus:outline-secondary rounded p-2  max-w-[400px] w-full "
-        placeholder={placeholderText[type]}
-        onChange={() => onInput(ref.current?.value || "")}
-      />
-    </>
-  );
-};
+    return (
+      <div className="flex flex-col gap-1">
+        {label && (
+          <label htmlFor={name} className="text-slate-800">
+            {label}
+          </label>
+        )}
+        <input
+          ref={ref}
+          name={name}
+          type={
+            type === "firstName" || type === "lastName" || type === "username"
+              ? "text"
+              : type
+          }
+          className="border-2 border-secondary focus:outline focus:outline-secondary rounded p-2 w-full"
+          placeholder={placeholderText[type]}
+          {...props}
+        />
+      </div>
+    );
+  }
+);
 
 export default Input;
