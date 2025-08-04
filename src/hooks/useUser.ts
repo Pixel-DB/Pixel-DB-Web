@@ -19,28 +19,35 @@ interface UserResponse {
 
 const useUser = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) return;
+    if (!token) {
+      setIsAuthenticated(false);
+      return;
+    }
+
     const fetchUser = async () => {
       try {
         const response = await apiClient.get<UserResponse>("/user", {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Beare ${token}`,
           },
         });
         console.log(response.data);
         setUserData(response.data.Data);
+        setIsAuthenticated(true);
       } catch (error) {
-        console.log(error);
+        console.log("error");
+        setIsAuthenticated(false);
       }
     };
 
     fetchUser();
   }, []);
 
-  return { userData };
+  return { userData, isAuthenticated };
 };
 
 export default useUser;
