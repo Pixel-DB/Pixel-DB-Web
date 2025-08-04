@@ -1,7 +1,7 @@
 import "./RegisterCard.css";
 import Input from "../ui/TextInput/Input";
 import Button from "../ui/Button/Button";
-import Errors from "../Errors/Errors";
+import Errors from "../Errors/RegisterErrors";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import useRegister from "@/hooks/useRegister";
 
@@ -108,7 +108,9 @@ const RegisterCard = () => {
           </Button>
         </div>
       </div>
-      <div className="pt-2 text-red-500"></div>
+      <div className="pt-2">
+        {statusCode && <Errors onSuccess="/">{statusCode}</Errors>}
+      </div>
       <div className="max-w-[400px] w-full flex justify-center pt-1 pb-2 text-gray-700">
         <p>
           Already have an Account?{" "}
