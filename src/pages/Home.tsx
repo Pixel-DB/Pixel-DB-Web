@@ -1,5 +1,4 @@
 import Banner from "@/components/Banner/Banner";
-import useUser from "@/hooks/useUser";
 
 const Home = () => {
   return (
