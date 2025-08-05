@@ -27,9 +27,9 @@ function Button({
   };
 
   const classes = `${bgColorClasses[color]} ${
-    sm ? "px-2 py-1" : "px-4 py-2"
+    sm ? "px-3 py-1" : "px-5 py-1"
   } rounded-lg border-slate-800 border-2 font-bold text-slate-800 button-3d ${
-    sm ? "max-w-[100px]" : wFull ? "w-full" : ""
+    sm ? "max-w-[100px] w-full" : wFull ? "w-full" : "px-4"
   } text-center`;
 
   if (href) {
