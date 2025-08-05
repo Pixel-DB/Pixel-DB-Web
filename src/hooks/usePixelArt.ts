@@ -17,7 +17,7 @@ interface PixelArtResponse {
   Status: string;
 }
 
-const useUser = () => {
+const usePixelArt = () => {
   const [PixelArtData, setPixelArtData] = useState<PixelArtResponse | null>(
     null
   );
@@ -39,4 +39,4 @@ const useUser = () => {
   return { PixelArtData };
 };
 
-export default useUser;
+export default usePixelArt;
