@@ -23,7 +23,7 @@ const usePixelArt = () => {
   );
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchPixelArt = async () => {
       try {
         const response = await apiClient.get<PixelArtResponse>("/pixelart");
         console.log(response.data);
@@ -33,7 +33,7 @@ const usePixelArt = () => {
       }
     };
 
-    fetchUser();
+    fetchPixelArt();
   }, []);
 
   return { PixelArtData };
