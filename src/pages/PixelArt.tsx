@@ -7,7 +7,7 @@ const PixelArt = () => {
     <div className="flex items-center justify-center">
       <div className="grid grid-cols-3 gap-6">
         <PixelArtCard />
-        {PixelArtData?.Message}
+        {PixelArtData?.Status}
       </div>
     </div>
   );
