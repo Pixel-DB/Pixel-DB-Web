@@ -1,6 +1,8 @@
+import useUser from "@/hooks/useUser";
 import LoginButton from "./LoginButton";
 import { NavbarItems } from "./NavbarItems";
 import NavbarLogo from "./NavbarLogo";
+import ProfileButton from "./ProfileButton";
 
 const item = [
   {
@@ -18,6 +20,8 @@ const item = [
 ];
 
 const Navbar = () => {
+  const { isAuthenticated } = useUser();
+
   return (
     <div className="w-full flex items-center bg-primary justify-center">
       <div className="w-[1300px] flex items-center">
@@ -25,7 +29,7 @@ const Navbar = () => {
 
         <NavbarItems item={item} />
 
-        <LoginButton />
+        {isAuthenticated ? <ProfileButton /> : <LoginButton />}
       </div>
     </div>
   );

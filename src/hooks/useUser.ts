@@ -32,7 +32,7 @@ const useUser = () => {
       try {
         const response = await apiClient.get<UserResponse>("/user", {
           headers: {
-            Authorization: `Beare ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         console.log(response.data);

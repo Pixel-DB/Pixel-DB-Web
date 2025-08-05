@@ -28,8 +28,8 @@ function Button({
 
   const classes = `${bgColorClasses[color]} ${
     sm ? "px-2 py-1" : "px-4 py-2"
-  } rounded-lg border-slate-800 border-2 font-bold text-slate-800 button-3d w-full ${
-    sm ? "max-w-[100px]" : wFull ? "w-full" : "max-w-[300px]"
+  } rounded-lg border-slate-800 border-2 font-bold text-slate-800 button-3d ${
+    sm ? "max-w-[100px]" : wFull ? "w-full" : ""
   } text-center`;
 
   if (href) {
