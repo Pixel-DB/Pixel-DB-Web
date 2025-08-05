@@ -11,6 +11,7 @@ const Errors = ({ children, onSuccess = "/" }: Props) => {
 
   useEffect(() => {
     if (children === 200) {
+      window.location.reload();
       navigate(onSuccess);
     }
   });
