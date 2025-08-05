@@ -2,19 +2,21 @@ import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
 
 interface PixelArtData {
-  CreatedAt: string;
-  Email: string;
-  FirstName: string;
   ID: string;
-  LastName: string;
-  Role: string;
-  Username: string;
+  CreatedAt: string;
+  OwnerID: string;
+  OwnerUsername: string;
+  Filename: string;
+  OldFilename: string;
+  FileExtension: string;
+  PixelArtURL: string;
+  PixelArtSize: number;
 }
 
 interface PixelArtResponse {
-  Data: PixelArtData;
-  Message: string;
   Status: string;
+  Message: string;
+  Data: PixelArtData;
 }
 
 const usePixelArt = () => {
