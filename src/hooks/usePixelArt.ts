@@ -33,11 +33,14 @@ const usePixelArt = () => {
   const [PixelArtData, setPixelArtData] = useState<PixelArtResponse | null>(
     null
   );
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchPixelArt = async () => {
       try {
-        const response = await apiClient.get<PixelArtResponse>("/pixelart");
+        const response = await apiClient.get<PixelArtResponse>(
+          "/pixelart?page=" + page
+        );
         console.log(response.data);
         setPixelArtData(response.data);
       } catch (error) {
@@ -46,9 +49,9 @@ const usePixelArt = () => {
     };
 
     fetchPixelArt();
-  }, []);
+  }, [page]);
 
-  return { PixelArtData };
+  return { PixelArtData, setPage, page };
 };
 
 export default usePixelArt;
