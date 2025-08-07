@@ -34,6 +34,7 @@ const usePixelArt = () => {
     null
   );
   const [page, setPage] = useState(1);
+  const [max_page, setMax_page] = useState(1);
 
   useEffect(() => {
     const fetchPixelArt = async () => {
@@ -42,6 +43,7 @@ const usePixelArt = () => {
           "/pixelart?page=" + page
         );
         console.log(response.data);
+        setMax_page(response.data.Data.max_page);
         setPixelArtData(response.data);
       } catch (error) {
         console.log("error");
@@ -51,7 +53,7 @@ const usePixelArt = () => {
     fetchPixelArt();
   }, [page]);
 
-  return { PixelArtData, setPage, page };
+  return { PixelArtData, setPage, page, max_page };
 };
 
 export default usePixelArt;
