@@ -1,16 +1,26 @@
 import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
 
-interface PixelArtData {
+interface PixelArtItem {
   ID: string;
   CreatedAt: string;
+  URL: string;
   OwnerID: string;
-  OwnerUsername: string;
   Filename: string;
-  OldFilename: string;
-  FileExtension: string;
-  PixelArtURL: string;
-  PixelArtSize: number;
+  Name: string;
+  Description: string;
+}
+
+interface PixelArtData {
+  items: PixelArtItem[];
+  page: number;
+  size: number;
+  max_page: number;
+  total_pages: number;
+  total: number;
+  last: boolean;
+  first: boolean;
+  visible: number;
 }
 
 interface PixelArtResponse {
