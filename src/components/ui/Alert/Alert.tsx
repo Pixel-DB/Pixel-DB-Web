@@ -11,7 +11,7 @@ const Alert = ({ children }: Props) => {
 
   return (
     isVisible && (
-      <div className="fixed w-full bottom-15 flex justify-center">
+      <div className="fixed w-full bottom-1 flex justify-center">
         <div className="max-w-[500px] border-4 border-accent px-2 py-2 rounded-xl bg-background text-center flex items-center justify-center shadow-lg">
           <FaInfo className="text-xl text-accent" />
           <span className="text-base">{children}</span>
