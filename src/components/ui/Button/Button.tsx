@@ -7,6 +7,8 @@ interface Props {
   href?: string;
   wFull?: boolean;
   type?: "button" | "submit";
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 function Button({
@@ -16,6 +18,8 @@ function Button({
   href,
   wFull = false,
   type = "button",
+  onClick,
+  disabled = false,
 }: Props) {
   const bgColorClasses = {
     blue: "bg-blue-500",
@@ -26,11 +30,13 @@ function Button({
     secondary: "bg-secondary",
   };
 
-  const classes = `${bgColorClasses[color]} ${
+  const classes = `${bgColorClasses[color]} 
+  ${
     sm ? "px-3 py-1" : "px-5 py-1"
-  } rounded-lg border-slate-800 border-2 font-bold text-slate-800 button-3d ${
-    sm ? "max-w-[100px] w-full" : wFull ? "w-full" : "px-4"
-  } text-center`;
+  } rounded-lg border-slate-800 border-2 font-bold text-slate-800 button-3d 
+  ${sm ? "max-w-[100px] w-full" : wFull ? "w-full" : "px-4"} text-center ${
+    disabled ? "opacity-70 cursor-not-allowed" : ""
+  }`;
 
   if (href) {
     return (
@@ -41,7 +47,12 @@ function Button({
   }
 
   return (
-    <button type={type} className={classes}>
+    <button
+      type={type}
+      className={classes}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
