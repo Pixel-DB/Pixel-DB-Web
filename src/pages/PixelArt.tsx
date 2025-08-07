@@ -4,12 +4,14 @@ import usePixelArt from "@/hooks/usePixelArt";
 import { useEffect, useState } from "react";
 
 const PixelArt = () => {
-  const { PixelArtData, page, setPage } = usePixelArt();
-  const [disabled, setDisabled] = useState(false);
+  const { PixelArtData, page, setPage, max_page } = usePixelArt();
+  const [BackDisabled, setBackDisabled] = useState(false);
+  const [NextDisabled, setNextDisabled] = useState(false);
 
   useEffect(() => {
-    setDisabled(page <= 1);
-  }, [page]);
+    setBackDisabled(page <= 1);
+    setNextDisabled(max_page <= page);
+  }, [page, max_page]);
 
   const handleNextPage = () => {
     setPage(page + 1);
@@ -36,12 +38,17 @@ const PixelArt = () => {
             w-full
             color="blue"
             onClick={handlePreviousPage}
-            disabled={disabled}
+            disabled={BackDisabled}
           >
             Back
           </Button>
           <h1 className="text-xl font-bold">{page}</h1>
-          <Button wFull color="amber" onClick={handleNextPage}>
+          <Button
+            wFull
+            color="amber"
+            onClick={handleNextPage}
+            disabled={NextDisabled}
+          >
             Next
           </Button>
         </div>
