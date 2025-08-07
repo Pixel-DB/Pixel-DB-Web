@@ -1,9 +1,15 @@
 import PixelArtCard from "@/components/PixelArtCard/PixelArtCard";
 import Button from "@/components/ui/Button/Button";
 import usePixelArt from "@/hooks/usePixelArt";
+import { useEffect, useState } from "react";
 
 const PixelArt = () => {
   const { PixelArtData, page, setPage } = usePixelArt();
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    setDisabled(page <= 1);
+  }, [page]);
 
   const handleNextPage = () => {
     setPage(page + 1);
@@ -26,7 +32,12 @@ const PixelArt = () => {
           ))}
         </div>
         <div className="mt-10 flex gap-6 items-center justify-center">
-          <Button disabled w-full color="blue" onClick={handlePreviousPage}>
+          <Button
+            w-full
+            color="blue"
+            onClick={handlePreviousPage}
+            disabled={disabled}
+          >
             Back
           </Button>
           <h1 className="text-xl font-bold">{page}</h1>
