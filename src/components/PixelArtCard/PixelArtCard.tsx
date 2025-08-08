@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./PixelArtCard.css";
 
 interface Props {
@@ -7,8 +8,10 @@ interface Props {
 }
 
 const PixelArtCard = ({ name, description, id }: Props) => {
+  let navigate = useNavigate();
   const handleClick = () => {
-    console.log("ID" + id);
+    console.log(id);
+    navigate(`/pixelart/${id}`);
   };
 
   return (
