@@ -1,5 +1,4 @@
 import Button from "../ui/Button/Button";
-import "./DetailBox.css";
 
 interface Props {
   Name?: string;
