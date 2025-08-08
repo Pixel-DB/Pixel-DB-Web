@@ -1,4 +1,3 @@
-import Placeholder from "@/assets/ColorPalatte.svg";
 import "./PixelArtCard.css";
 
 interface Props {
@@ -18,7 +17,11 @@ const PixelArtCard = ({ name, description, id }: Props) => {
       onClick={handleClick}
     >
       <div className="bg-white w-[250px] h-[250px] rounded-lg flex justify-center items-center object-cover">
-        <img className="p-3" src={Placeholder} alt="PixelArt" />
+        <img
+          className="p-3"
+          src={`http://localhost:3000/pixelart/${id}/picture`}
+          alt="PixelArt"
+        />
       </div>
       <div className="px-2 pb-2">
         <h1 className="text-black text-lg">{name}</h1>
