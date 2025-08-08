@@ -10,7 +10,6 @@ interface Props {
 const PixelArtCard = ({ name, description, id }: Props) => {
   let navigate = useNavigate();
   const handleClick = () => {
-    console.log(id);
     navigate(`/pixelart/${id}`);
   };
 
