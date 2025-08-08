@@ -30,6 +30,7 @@ const PixelArt = () => {
               key={item.ID}
               name={item.Name}
               description={item.Description}
+              id={item.ID}
             />
           ))}
         </div>
