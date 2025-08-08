@@ -26,7 +26,6 @@ const PixelArtCard = ({ name, description, id }: Props) => {
       <div className="px-2 pb-2">
         <h1 className="text-black text-lg">{name}</h1>
         <p className="text-gray-700 text-sm">{description}</p>
-        <p className="text-gray-700 text-xs">{id}</p>
       </div>
     </div>
   );
