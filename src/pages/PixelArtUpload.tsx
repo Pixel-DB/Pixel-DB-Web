@@ -4,7 +4,7 @@ import Input from "@/components/ui/TextInput/Input";
 import useUploadPixelArt from "@/hooks/useUploadPixelArt";
 
 const PixelArtUpload = () => {
-  const { uploadPixelArt } = useUploadPixelArt("hallo");
+  const { uploadPixelArt } = useUploadPixelArt();
   const handleSubmit = () => {
     console.log("Form submitted");
   };
