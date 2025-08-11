@@ -3,13 +3,20 @@ import TextArea from "@/components/ui/TextArea/TextArea";
 import Input from "@/components/ui/TextInput/Input";
 
 const PixelArtUpload = () => {
+  const handleSubmit = () => {
+    console.log("Form submitted");
+  };
+
   return (
     <div className="flex justify-center items-center p-16">
       <div className="border-3d border-2 border-slate-800 rounded-md max-w-[800px] w-full flex flex-col">
         <h1 className="w-full text-2xl text-left font-bold p-4">
           Upload PixelArt
         </h1>
-        <form className="flex flex-col gap-4 p-4 w-full">
+        <form
+          className="flex flex-col gap-4 p-4 w-full"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-row gap-4">
             <Input type="text" label="Name" />
             <Input type="text" label="Author" />
@@ -23,7 +30,7 @@ const PixelArtUpload = () => {
             <Input type="file" accept="image/png" label="Upload Pixel Art" />
           </div>
           <div className="flex flex-row-reverse w-full justify-between pt-6">
-            <Button wFull color="green" sm>
+            <Button wFull color="green" sm type="submit">
               Submit
             </Button>
             <Button wFull color="accent" sm>
