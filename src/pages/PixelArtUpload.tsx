@@ -1,11 +1,15 @@
 import Button from "@/components/ui/Button/Button";
 import TextArea from "@/components/ui/TextArea/TextArea";
 import Input from "@/components/ui/TextInput/Input";
+import useUploadPixelArt from "@/hooks/useUploadPixelArt";
 
 const PixelArtUpload = () => {
+  const { uploadPixelArt } = useUploadPixelArt("hallo");
   const handleSubmit = () => {
     console.log("Form submitted");
   };
+
+  uploadPixelArt();
 
   return (
     <div className="flex justify-center items-center p-16">
