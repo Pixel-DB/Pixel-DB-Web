@@ -2,12 +2,12 @@ import { useNavigate } from "react-router-dom";
 import "./PixelArtCard.css";
 
 interface Props {
-  name: string;
+  title: string;
   description: string;
   id: string;
 }
 
-const PixelArtCard = ({ name, description, id }: Props) => {
+const PixelArtCard = ({ title, description, id }: Props) => {
   let navigate = useNavigate();
   const handleClick = () => {
     navigate(`/pixelart/${id}`);
@@ -26,7 +26,7 @@ const PixelArtCard = ({ name, description, id }: Props) => {
         />
       </div>
       <div className="px-2 pb-2">
-        <h1 className="text-black text-lg">{name}</h1>
+        <h1 className="text-black text-lg">{title}</h1>
         <p className="text-gray-700 text-sm">{description}</p>
       </div>
     </div>
