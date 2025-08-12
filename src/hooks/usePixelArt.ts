@@ -7,7 +7,7 @@ interface PixelArtItem {
   URL: string;
   OwnerID: string;
   Filename: string;
-  Name: string;
+  Title: string;
   Description: string;
 }
 
