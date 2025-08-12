@@ -28,7 +28,7 @@ const PixelArt = () => {
           {PixelArtData?.Data.items.map((item) => (
             <PixelArtCard
               key={item.ID}
-              name={item.Name}
+              title={item.Title}
               description={item.Description}
               id={item.ID}
             />
