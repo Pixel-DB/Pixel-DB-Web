@@ -1,11 +1,12 @@
 import apiClient from "@/services/api-client";
 
-const useUploadPixelArt = (file: any) => {
-  const formData = new FormData();
-  formData.append("pixelart", file);
+const useUploadPixelArt = () => {
   const token = localStorage.getItem("token");
 
-  const uploadPixelArt = async () => {
+  const uploadPixelArt = async (file: File) => {
+    const formData = new FormData();
+    formData.append("pixelart", file);
+
     await apiClient
       .post("pixelart", formData, {
         headers: {
