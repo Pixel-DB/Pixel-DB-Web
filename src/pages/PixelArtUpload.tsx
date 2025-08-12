@@ -17,8 +17,11 @@ const PixelArtUpload = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
-    const file = data.UploadPixelArt[0];
-    uploadPixelArt(file);
+    uploadPixelArt({
+      Name: data.Name,
+      Description: data.Description,
+      UploadPixelArt: data.UploadPixelArt,
+    });
   };
 
   return (
