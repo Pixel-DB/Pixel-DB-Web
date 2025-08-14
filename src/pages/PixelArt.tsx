@@ -24,16 +24,17 @@ const PixelArt = () => {
   return (
     <div>
       <div className="flex flex-col items-center pt-5">
-        <div className="grid 2xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-6">
+        <div className="grid 2xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-6">
           {PixelArtData?.Data.items.map((item) => (
             <PixelArtCard
               key={item.ID}
-              name={item.Name}
+              title={item.Title}
               description={item.Description}
+              id={item.ID}
             />
           ))}
         </div>
-        <div className="mt-10 flex gap-6 items-center justify-center">
+        <div className="m-10 flex gap-6 items-center justify-center">
           <Button
             w-full
             color="blue"
