@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
 import PixelArtUpload from "./pages/PixelArtUpload";
-import Settings from "./pages/Settings";
+import Settings from "./pages/Settings/Settings";
 
 function App() {
   return (
