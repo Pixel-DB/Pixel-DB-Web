@@ -7,7 +7,6 @@ const DashboardSideBar = () => {
       <Link to="/Dashboard">Home</Link>
       <Link to="/Dashboard/profile">Profile</Link>
       <Link to="/Dashboard/pixelarts/upload">Upload</Link>
-      <Link to="/Dashboard/profile">Profile</Link>
       <Link to="/Dashboard/settings">Settings</Link>
       <Link to="/Dashboard/license">License</Link>
     </div>
