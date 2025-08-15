@@ -4,11 +4,12 @@ const DashboardSideBar = () => {
   return (
     <div className="flex flex-col gap-8 p-4 text-xl text-gray-800">
       <h1 className="text-2xl font-bold py-4 text-black">Dashboard</h1>
-      <Link to="/settings">Home</Link>
-      <Link to="/settings/profile">Profile</Link>
-      <Link to="/settings/general">General</Link>
-      <Link to="/settings/pixelarts">Pixel Arts</Link>
-      <Link to="/settings/license">License</Link>
+      <Link to="/Dashboard">Home</Link>
+      <Link to="/Dashboard/profile">Profile</Link>
+      <Link to="/Dashboard/pixelarts/upload">Upload</Link>
+      <Link to="/Dashboard/profile">Profile</Link>
+      <Link to="/Dashboard/settings">Settings</Link>
+      <Link to="/Dashboard/license">License</Link>
     </div>
   );
 };
