@@ -1,0 +1,66 @@
+import useUser from "@/hooks/useUser";
+import "../../App.css";
+import Input from "@/components/ui/TextInput/Input";
+import Button from "@/components/ui/Button/Button";
+
+const SettingsProfile = () => {
+  const { userData } = useUser();
+
+  const handleSubmit = () => {
+    console.log("Submitted");
+  };
+
+  return (
+    <form
+      className="flex-col gap-4 max-w-[700px] w-full px-7 py-4 border-3d border-2 border-gray-700 rounded-md my-10 mx-5"
+      onSubmit={handleSubmit}
+    >
+      <h1 className="w-full text-left text-2xl font-bold">Profile Settings</h1>
+      <div className="pt-5 flex-col space-y-4 w-full flex items-start">
+        <div className="flex flex-row items-center space-x-4">
+          <img
+            className="rounded-md"
+            src={`https://ui-avatars.com/api/?background=16a34a&name=${userData?.FirstName}+${userData?.LastName}&size=100`}
+          />
+          <div className="flex flex-col">
+            <h1 className="text-2xl font-bold">
+              {userData?.FirstName} {userData?.LastName}
+            </h1>
+            <h1 className="text-xl">{userData?.Username}</h1>
+            <h1 className="text-sm text-gray-700">{userData?.ID}</h1>
+          </div>
+        </div>
+        <Input type="email" placeholder={userData?.Email} label="Email" />
+        <Input
+          type="username"
+          placeholder={userData?.Username}
+          label="Username"
+        />
+        <div className="flex flex-row w-full space-x-4">
+          <Input
+            type="firstName"
+            placeholder={userData?.FirstName}
+            label="First Name"
+          />
+          <Input
+            type="lastName"
+            placeholder={userData?.LastName}
+            label="Last Name"
+          />
+        </div>
+        <Input
+          type="password"
+          placeholder="Enter your new password"
+          label="Change Password"
+        />
+      </div>
+      <div className="w-full flex justify-end pt-5">
+        <Button sm color="amber" type="submit">
+          Save
+        </Button>
+      </div>
+    </form>
+  );
+};
+
+export default SettingsProfile;
