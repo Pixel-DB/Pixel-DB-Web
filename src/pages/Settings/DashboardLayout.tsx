@@ -1,7 +1,7 @@
 import SettingsSideBar from "@/components/Settings/SettingsSideBar";
 import { Outlet } from "react-router-dom";
 
-const SettingsLayout = () => {
+const DashboardLayout = () => {
   return (
     <div className="flex h-full w-full">
       <aside className="z-999 max-w-[200px] w-full shadow-xl/30 h-screen mr-2">
@@ -14,4 +14,4 @@ const SettingsLayout = () => {
   );
 };
 
-export default SettingsLayout;
+export default DashboardLayout;
