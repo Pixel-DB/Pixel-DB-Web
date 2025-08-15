@@ -9,7 +9,7 @@ import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
 import PixelArtUpload from "./pages/PixelArtUpload";
 import SettingsProfile from "./pages/Settings/SettingsProfile";
-import SettingsLayout from "./pages/Settings/SettingsLayout";
+import SettingsLayout from "./pages/Settings/DashboardLayout";
 import Settings from "./pages/Settings/Settings";
 
 function App() {
