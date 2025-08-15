@@ -6,8 +6,12 @@ import ProfileButton from "./ProfileButton";
 
 const item = [
   {
-    name: "Home",
-    link: "/",
+    name: "Explore",
+    link: "/pixelart",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
   },
   {
     name: "About",
