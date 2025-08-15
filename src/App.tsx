@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
 import PixelArtUpload from "./pages/PixelArtUpload";
-import SettingsProfile from "./pages/Settings/SettingsProfile";
+import DashboardProfile from "./pages/Settings/DashboardProfile";
 import DashboardLayout from "./pages/Settings/DashboardLayout";
 import Dashboard from "./pages/Settings/Dashboard";
 
@@ -25,7 +25,7 @@ function App() {
           <Route path="pixelart/upload" element={<PixelArtUpload />} />
           <Route path="dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="profile" element={<SettingsProfile />} />
+            <Route path="profile" element={<DashboardProfile />} />
           </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
