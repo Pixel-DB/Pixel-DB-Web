@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
 import PixelArtUpload from "./pages/PixelArtUpload";
-import SettingsProfil from "./pages/Settings/SettingsProfil";
+import SettingsProfile from "./pages/Settings/SettingsProfile";
 import SettingsLayout from "./pages/Settings/SettingsLayout";
 import Settings from "./pages/Settings/Settings";
 
@@ -20,12 +20,12 @@ function App() {
           <Route index element={<Home />} />
           <Route path="auth/login" element={<Login />} />
           <Route path="auth/register" element={<Register />} />
-          <Route path="/pixelart" element={<PixelArt />} />
-          <Route path="/pixelart/:id" element={<PixelArtDetail />} />
-          <Route path="/pixelart/upload" element={<PixelArtUpload />} />
-          <Route path="/settings" element={<SettingsLayout />}>
+          <Route path="pixelart" element={<PixelArt />} />
+          <Route path="pixelart/:id" element={<PixelArtDetail />} />
+          <Route path="pixelart/upload" element={<PixelArtUpload />} />
+          <Route path="settings" element={<SettingsLayout />}>
             <Route index element={<Settings />} />
-            <Route path="profil" element={<SettingsProfil />} />
+            <Route path="profile" element={<SettingsProfile />} />
           </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
