@@ -8,6 +8,9 @@ import Register from "./pages/Register";
 import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
 import PixelArtUpload from "./pages/PixelArtUpload";
+import DashboardProfile from "./pages/Dashboard/DashboardProfile";
+import DashboardLayout from "./pages/Dashboard/DashboardLayout";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -17,9 +20,14 @@ function App() {
           <Route index element={<Home />} />
           <Route path="auth/login" element={<Login />} />
           <Route path="auth/register" element={<Register />} />
-          <Route path="/pixelart" element={<PixelArt />} />
-          <Route path="/pixelart/:id" element={<PixelArtDetail />} />
-          <Route path="/pixelart/upload" element={<PixelArtUpload />} />
+          <Route path="pixelart" element={<PixelArt />} />
+          <Route path="pixelart/:id" element={<PixelArtDetail />} />
+          <Route path="pixelart/upload" element={<PixelArtUpload />} />
+          <Route path="dashboard" element={<DashboardLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="profile" element={<DashboardProfile />} />
+            <Route path="upload" element={<PixelArtUpload />} />
+          </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
