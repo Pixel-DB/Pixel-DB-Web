@@ -26,6 +26,7 @@ function App() {
           <Route path="dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="profile" element={<DashboardProfile />} />
+            <Route path="upload" element={<PixelArtUpload />} />
           </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
