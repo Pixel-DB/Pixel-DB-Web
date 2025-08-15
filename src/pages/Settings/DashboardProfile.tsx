@@ -3,7 +3,7 @@ import "../../App.css";
 import Input from "@/components/ui/TextInput/Input";
 import Button from "@/components/ui/Button/Button";
 
-const SettingsProfile = () => {
+const DashboardProfile = () => {
   const { userData } = useUser();
 
   const handleSubmit = () => {
@@ -63,4 +63,4 @@ const SettingsProfile = () => {
   );
 };
 
-export default SettingsProfile;
+export default DashboardProfile;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const SettingsSideBar = () => {
+const DashboardSideBar = () => {
   return (
     <div className="flex flex-col gap-8 p-4 text-xl text-gray-800">
       <h1 className="text-2xl font-bold py-4 text-black">Dashboard</h1>
@@ -13,4 +13,4 @@ const SettingsSideBar = () => {
   );
 };
 
-export default SettingsSideBar;
+export default DashboardSideBar;
