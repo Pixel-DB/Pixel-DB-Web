@@ -8,9 +8,9 @@ import Register from "./pages/Register";
 import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
 import PixelArtUpload from "./pages/PixelArtUpload";
-import DashboardProfile from "./pages/Settings/DashboardProfile";
-import DashboardLayout from "./pages/Settings/DashboardLayout";
-import Dashboard from "./pages/Settings/Dashboard";
+import DashboardProfile from "./pages/Dashboard/DashboardProfile";
+import DashboardLayout from "./pages/Dashboard/DashboardLayout";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   return (
