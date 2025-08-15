@@ -9,8 +9,8 @@ import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
 import PixelArtUpload from "./pages/PixelArtUpload";
 import SettingsProfile from "./pages/Settings/SettingsProfile";
-import SettingsLayout from "./pages/Settings/DashboardLayout";
-import Settings from "./pages/Settings/Settings";
+import DashboardLayout from "./pages/Settings/DashboardLayout";
+import Dashboard from "./pages/Settings/Dashboard";
 
 function App() {
   return (
@@ -23,8 +23,8 @@ function App() {
           <Route path="pixelart" element={<PixelArt />} />
           <Route path="pixelart/:id" element={<PixelArtDetail />} />
           <Route path="pixelart/upload" element={<PixelArtUpload />} />
-          <Route path="dashboard" element={<SettingsLayout />}>
-            <Route index element={<Settings />} />
+          <Route path="dashboard" element={<DashboardLayout />}>
+            <Route index element={<Dashboard />} />
             <Route path="profile" element={<SettingsProfile />} />
           </Route>
           <Route path="*" element={<NoPage />} />

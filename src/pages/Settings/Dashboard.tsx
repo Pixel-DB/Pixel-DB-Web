@@ -1,7 +1,7 @@
 import useUser from "@/hooks/useUser";
 import "../../App.css";
 
-const Settings = () => {
+const Dashboard = () => {
   const { userData } = useUser();
 
   return (
@@ -11,4 +11,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default Dashboard;
