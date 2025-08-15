@@ -23,7 +23,7 @@ function App() {
           <Route path="pixelart" element={<PixelArt />} />
           <Route path="pixelart/:id" element={<PixelArtDetail />} />
           <Route path="pixelart/upload" element={<PixelArtUpload />} />
-          <Route path="settings" element={<SettingsLayout />}>
+          <Route path="dashboard" element={<SettingsLayout />}>
             <Route index element={<Settings />} />
             <Route path="profile" element={<SettingsProfile />} />
           </Route>
