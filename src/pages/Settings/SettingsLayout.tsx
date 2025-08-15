@@ -7,7 +7,9 @@ const SettingsLayout = () => {
       <aside className="max-w-[200px] w-full shadow-xl/30 h-screen mr-2">
         <SettingsSideBar />
       </aside>
-      <Outlet />
+      <div className="absolute flex w-full justify-center">
+        <Outlet />
+      </div>
     </div>
   );
 };
