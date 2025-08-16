@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 interface Props {
   children: React.ReactNode;
@@ -9,12 +8,11 @@ interface Props {
 
 const Errors = ({ children, onSuccess = "/" }: Props) => {
   const navigate = useNavigate();
-  const notify = () => toast("Successfully logged in!");
 
   useEffect(() => {
     if (children === 200) {
+      window.location.reload();
       navigate(onSuccess);
-      notify();
     }
   });
 
