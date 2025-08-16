@@ -14,7 +14,9 @@ const LoginCard = () => {
   const { login, statusCode } = useLogin();
   const { register, handleSubmit } = useForm<FieldValues>();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => login(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    login(data);
+  };
 
   return (
     <form
