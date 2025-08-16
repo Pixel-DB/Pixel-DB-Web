@@ -14,7 +14,9 @@ const LoginCard = () => {
   const { login, statusCode } = useLogin();
   const { register, handleSubmit } = useForm<FieldValues>();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => login(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    login(data);
+  };
 
   return (
     <form
@@ -38,7 +40,7 @@ const LoginCard = () => {
         </div>
       </div>
       <div className="pt-2">
-        {statusCode && <Errors onSuccess="/">{statusCode}</Errors>}
+        {statusCode && <Errors onSuccess="/Dashboard">{statusCode}</Errors>}
       </div>
       <div className="max-w-[400px] w-full flex justify-center pt-1 pb-2 text-gray-700">
         <p>
