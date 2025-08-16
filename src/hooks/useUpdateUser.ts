@@ -29,7 +29,7 @@ const useUpdateUser = () => {
           },
         }
       )
-      .then(function (response) {
+      .then(function () {
         toast.success("User updated successfully!", {
           position: "bottom-right",
           autoClose: 5000,
