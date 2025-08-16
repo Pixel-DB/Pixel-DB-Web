@@ -33,7 +33,7 @@ const usePixelArt = () => {
   const [PixelArtData, setPixelArtData] = useState<PixelArtResponse | null>(
     null
   );
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [max_page, setMax_page] = useState(1);
 
   useEffect(() => {

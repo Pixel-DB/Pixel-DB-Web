@@ -2,18 +2,31 @@ import useUser from "@/hooks/useUser";
 import "../../App.css";
 import Input from "@/components/ui/TextInput/Input";
 import Button from "@/components/ui/Button/Button";
+import useUpdateUser from "@/hooks/useUpdateUser";
+import { useForm, type SubmitHandler } from "react-hook-form";
+
+interface FieldValues {
+  email?: string;
+  username?: string;
+  firstName?: string;
+  lastName?: string;
+  password?: string;
+}
 
 const DashboardProfile = () => {
   const { userData } = useUser();
+  const { updateUser } = useUpdateUser();
+  const { register, handleSubmit } = useForm<FieldValues>();
 
-  const handleSubmit = () => {
-    console.log("Submitted");
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    updateUser(data);
+    console.log(data);
   };
 
   return (
     <form
       className="flex-col gap-4 max-w-[700px] w-full px-7 py-4 border-3d border-2 border-gray-700 rounded-md my-10 mx-5"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <h1 className="w-full text-left text-2xl font-bold">Profile Settings</h1>
       <div className="pt-5 flex-col space-y-4 w-full flex items-start">
@@ -30,28 +43,37 @@ const DashboardProfile = () => {
             <h1 className="text-sm text-gray-700">{userData?.ID}</h1>
           </div>
         </div>
-        <Input type="email" placeholder={userData?.Email} label="Email" />
+        <Input
+          type="email"
+          placeholder={userData?.Email}
+          label="Email"
+          {...register("email")}
+        />
         <Input
           type="username"
           placeholder={userData?.Username}
           label="Username"
+          {...register("username")}
         />
         <div className="flex flex-row w-full space-x-4">
           <Input
             type="firstName"
             placeholder={userData?.FirstName}
             label="First Name"
+            {...register("firstName")}
           />
           <Input
             type="lastName"
             placeholder={userData?.LastName}
             label="Last Name"
+            {...register("lastName")}
           />
         </div>
         <Input
           type="password"
           placeholder="Enter your new password"
           label="Change Password"
+          {...register("password")}
         />
       </div>
       <div className="w-full flex justify-end pt-5">

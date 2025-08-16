@@ -12,7 +12,7 @@ const PixelArtDetail = () => {
         />
       </div>
       <DetailBox
-        Name={PixelArtDetailData?.Data.Name}
+        Name={PixelArtDetailData?.Data.Title}
         Description={PixelArtDetailData?.Data.Description}
         CreatedAt={PixelArtDetailData?.Data.CreatedAt}
         ID={PixelArtDetailData?.Data.ID}
