@@ -2,7 +2,7 @@ import apiClient from "@/services/api-client";
 import { Bounce, toast } from "react-toastify";
 
 interface UploadPixelArtData {
-  Name: string;
+  Title: string;
   Description: string;
   UploadPixelArt: FileList;
 }
@@ -16,7 +16,7 @@ const useUploadPixelArt = () => {
     formData.append(
       "meta",
       JSON.stringify({
-        PixelArtName: Data.Name,
+        PixelArtName: Data.Title,
         PixelArtDescription: Data.Description,
       })
     );
