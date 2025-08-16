@@ -46,33 +46,33 @@ const DashboardProfile = () => {
         <Input
           type="email"
           placeholder={userData?.Email}
-          label="Email"
+          label="Edit email"
           {...register("email")}
         />
         <Input
           type="username"
           placeholder={userData?.Username}
-          label="Username"
+          label="Edit username"
           {...register("username")}
         />
         <div className="flex flex-row w-full space-x-4">
           <Input
             type="firstName"
             placeholder={userData?.FirstName}
-            label="First Name"
+            label="Edit first name"
             {...register("firstName")}
           />
           <Input
             type="lastName"
             placeholder={userData?.LastName}
-            label="Last Name"
+            label="Edit last name"
             {...register("lastName")}
           />
         </div>
         <Input
           type="password"
           placeholder="Enter your new password"
-          label="Change Password"
+          label="Change password"
           {...register("password")}
         />
       </div>
