@@ -9,15 +9,25 @@ interface UpdateUserData {
 }
 
 const useUpdateUser = () => {
-  const login = async (userData: UpdateUserData) => {
+  const token = localStorage.getItem("token");
+  const updateUser = async (userData: UpdateUserData) => {
     await apiClient
-      .patch("/user", {
-        email: userData.email,
-        username: userData.username,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        password: userData.password,
-      })
+      .patch(
+        "/user",
+        {
+          email: userData.email,
+          username: userData.username,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          password: userData.password,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then(function (response) {
         console.log(response);
       })
@@ -25,6 +35,6 @@ const useUpdateUser = () => {
         console.log(error);
       });
   };
-  return { login };
+  return { updateUser };
 };
 export default useUpdateUser;
