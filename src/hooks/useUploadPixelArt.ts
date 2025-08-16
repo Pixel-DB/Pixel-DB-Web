@@ -44,6 +44,17 @@ const useUploadPixelArt = () => {
       })
       .catch((error) => {
         console.error("Upload failed:", error);
+        toast.error("Error uploading Pixel Art!", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+        });
       });
   };
   return { uploadPixelArt };
