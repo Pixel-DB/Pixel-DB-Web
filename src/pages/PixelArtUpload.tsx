@@ -12,7 +12,11 @@ interface FieldValues {
 }
 
 const PixelArtUpload = () => {
-  const { register, handleSubmit } = useForm<FieldValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>();
   const { uploadPixelArt } = useUploadPixelArt();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -34,22 +38,47 @@ const PixelArtUpload = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-row gap-4">
-          <Input type="text" label="Title" {...register("Title")} />
+          <div>
+            <Input
+              type="text"
+              label="Title"
+              {...register("Title", {
+                required: true,
+              })}
+            />
+            {errors.Title?.type === "required" && (
+              <p className="text-red-500">Title is required</p>
+            )}
+          </div>
           <Input type="text" label="Author" {...register("Author")} />
         </div>
-        <TextArea
-          placeholder="Enter Description here"
-          label="Description"
-          rows={6}
-          {...register("Description")}
-        />
-        <div className="flex flex-row gap-4 w-1/2">
-          <Input
-            type="file"
-            accept="image/png"
-            label="Upload Pixel Art"
-            {...register("UploadPixelArt")}
+        <div className="flex flex-col">
+          <TextArea
+            placeholder="Enter Description here"
+            label="Description"
+            rows={6}
+            {...register("Description", {
+              required: true,
+            })}
           />
+          {errors.Description?.type === "required" && (
+            <p className="text-red-500">Descrption is required</p>
+          )}
+        </div>
+        <div className="flex flex-row gap-4 w-1/2">
+          <div>
+            <Input
+              type="file"
+              accept="image/png"
+              label="Upload Pixel Art"
+              {...register("UploadPixelArt", {
+                required: true,
+              })}
+            />
+            {errors.UploadPixelArt?.type === "required" && (
+              <p className="text-red-500">Pixel Art is required</p>
+            )}
+          </div>
         </div>
         <div className="flex flex-row-reverse w-full justify-between pt-6">
           <Button wFull color="green" sm type="submit">
