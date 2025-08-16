@@ -2,12 +2,26 @@ import useUser from "@/hooks/useUser";
 import "../../App.css";
 import Input from "@/components/ui/TextInput/Input";
 import Button from "@/components/ui/Button/Button";
+import { Bounce, toast } from "react-toastify";
 
 const DashboardProfile = () => {
   const { userData } = useUser();
+  const notify = () =>
+    toast.success("User updated successfully!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
 
-  const handleSubmit = () => {
-    console.log("Submitted");
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    notify();
   };
 
   return (
