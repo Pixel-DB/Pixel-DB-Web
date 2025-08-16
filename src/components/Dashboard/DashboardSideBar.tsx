@@ -10,7 +10,7 @@ const DashboardSideBar = () => {
             className={
               isActive
                 ? "bg-gray-300 px-4 py-2 flex rounded-md"
-                : "px-4 py-2 flex"
+                : "px-4 py-2 flex hover:bg-gray-100 rounded-md"
             }
           >
             Home
@@ -23,7 +23,7 @@ const DashboardSideBar = () => {
             className={
               isActive
                 ? "bg-gray-300 px-4 py-2 flex rounded-md"
-                : "px-4 py-2 flex"
+                : "px-4 py-2 flex hover:bg-gray-100 rounded-md"
             }
           >
             Profile
@@ -36,7 +36,7 @@ const DashboardSideBar = () => {
             className={
               isActive
                 ? "bg-gray-300 px-4 py-2 flex rounded-md"
-                : "px-4 py-2 flex"
+                : "px-4 py-2 flex hover:bg-gray-100 rounded-md"
             }
           >
             Upload
@@ -49,7 +49,7 @@ const DashboardSideBar = () => {
             className={
               isActive
                 ? "bg-gray-300 px-4 py-2 flex rounded-md"
-                : "px-4 py-2 flex"
+                : "px-4 py-2 flex hover:bg-gray-100 rounded-md"
             }
           >
             Settings
@@ -62,7 +62,7 @@ const DashboardSideBar = () => {
             className={
               isActive
                 ? "bg-gray-300 px-4 py-2 flex rounded-md"
-                : "px-4 py-2 flex"
+                : "px-4 py-2 flex hover:bg-gray-100 rounded-md"
             }
           >
             License
