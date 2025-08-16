@@ -5,7 +5,7 @@ import useUploadPixelArt from "@/hooks/useUploadPixelArt";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 interface FieldValues {
-  Name: string;
+  Title: string;
   Author: string;
   Description: string;
   UploadPixelArt: FileList;
@@ -18,7 +18,7 @@ const PixelArtUpload = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
     uploadPixelArt({
-      Name: data.Name,
+      Title: data.Title,
       Description: data.Description,
       UploadPixelArt: data.UploadPixelArt,
     });
@@ -34,7 +34,7 @@ const PixelArtUpload = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-row gap-4">
-          <Input type="text" label="Name" {...register("Name")} />
+          <Input type="text" label="Title" {...register("Title")} />
           <Input type="text" label="Author" {...register("Author")} />
         </div>
         <TextArea
