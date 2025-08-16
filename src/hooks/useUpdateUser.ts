@@ -1,4 +1,5 @@
 import apiClient from "@/services/api-client";
+import { Bounce, toast } from "react-toastify";
 
 interface UpdateUserData {
   email?: string;
@@ -29,7 +30,17 @@ const useUpdateUser = () => {
         }
       )
       .then(function (response) {
-        console.log(response);
+        toast.success("User updated successfully!", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+        });
       })
       .catch(function (error) {
         console.log(error);
