@@ -11,7 +11,9 @@ const Layout = () => {
 
       <main className="flex-grow">
         <Outlet />
-        <Alert>This Service is still under Production</Alert>
+        <div className="hidden sm:block">
+          <Alert>This Service is still under Production</Alert>
+        </div>
         <ToastContainer />
       </main>
 
