@@ -3,6 +3,8 @@ import LoginButton from "./LoginButton";
 import { NavbarItems } from "./NavbarItems";
 import NavbarLogo from "./NavbarLogo";
 import ProfileButton from "./ProfileButton";
+import { IoMenu } from "react-icons/io5";
+import { useState } from "react";
 
 const item = [
   {
@@ -25,15 +27,30 @@ const item = [
 
 const Navbar = () => {
   const { isAuthenticated } = useUser();
+  const [isClosed, setIsClosed] = useState(true);
+
+  const handeClick = () => {
+    setIsClosed(!isClosed);
+  };
 
   return (
     <div className="w-full flex items-center bg-primary justify-center">
-      <div className="w-[1300px] flex items-center">
-        <NavbarLogo />
+      <div className="w-[1300px] flex flex-row justify-between items-center">
+        <div>
+          <NavbarLogo />
+        </div>
 
-        <NavbarItems item={item} />
+        <div className="hidden sm:block">
+          <NavbarItems item={item} />
+        </div>
 
-        {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+        <div className="sm:hidden text-3xl p-5" onClick={handeClick}>
+          <IoMenu />
+        </div>
+
+        <div className="hidden sm:block">
+          {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+        </div>
       </div>
     </div>
   );
