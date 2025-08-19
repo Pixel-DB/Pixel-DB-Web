@@ -36,7 +36,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full flex items-center bg-primary justify-center z-60">
+    <div className="w-full flex items-center bg-primary justify-center z-60 border-b-1 border-gray-500">
       <div className="w-[1300px]">
         {/* Big Devices */}
         <div className="flex flex-row justify-between items-center">
