@@ -3,7 +3,7 @@ import Logo from "../../assets/ColorPalatte.svg";
 const FooterCopyright = () => {
   return (
     <div className="p-2">
-      <span className="flex items-center gap-2">
+      <span className="flex items-center gap-2 text-sm md:text-base">
         <span>© 2025</span>
         <img
           src={Logo}
