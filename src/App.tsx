@@ -12,6 +12,7 @@ import DashboardLayout from "./pages/Dashboard/DashboardLayout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ProtectedRoute from "./security/ProtectedRoute";
 import DashboardUpload from "./pages/Dashboard/DashboardUpload";
+import DashboardSettings from "./pages/Dashboard/DashboardSettings";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="profile" element={<DashboardProfile />} />
             <Route path="upload" element={<DashboardUpload />} />
+            <Route path="settings" element={<DashboardSettings />} />
           </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
