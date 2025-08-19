@@ -31,26 +31,34 @@ const Navbar = () => {
 
   const handeClick = () => {
     setIsClosed(!isClosed);
+    console.log(isClosed);
   };
 
   return (
-    <div className="w-full flex items-center bg-primary justify-center">
-      <div className="w-[1300px] flex flex-row justify-between items-center">
-        <div>
-          <NavbarLogo />
+    <div className="w-full flex items-center bg-primary justify-center z-60">
+      <div className="w-[1300px]">
+        {/* Big Devices */}
+        <div className="flex flex-row justify-between items-center">
+          <div>
+            <NavbarLogo />
+          </div>
+          <div className="hidden sm:block">
+            <NavbarItems item={item} />
+          </div>
+          <div className="sm:hidden text-3xl p-5" onClick={handeClick}>
+            <IoMenu />
+          </div>
+          <div className="hidden sm:block">
+            {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+          </div>
         </div>
 
-        <div className="hidden sm:block">
-          <NavbarItems item={item} />
-        </div>
-
-        <div className="sm:hidden text-3xl p-5" onClick={handeClick}>
-          <IoMenu />
-        </div>
-
-        <div className="hidden sm:block">
-          {isAuthenticated ? <ProfileButton /> : <LoginButton />}
-        </div>
+        {/* Small Devices */}
+        {!isClosed && (
+          <div className="sm:hidden block bg-primary absolute w-full">
+            <NavbarItems item={item} />
+          </div>
+        )}
       </div>
     </div>
   );
