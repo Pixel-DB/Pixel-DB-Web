@@ -6,7 +6,7 @@ interface Props {
   onSuccess?: string;
 }
 
-const Errors = ({ children, onSuccess = "/" }: Props) => {
+const Errors = ({ children, onSuccess = "/dashboard" }: Props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
