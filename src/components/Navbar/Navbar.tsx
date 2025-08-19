@@ -42,20 +42,20 @@ const Navbar = () => {
           <div>
             <NavbarLogo />
           </div>
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             <NavbarItems item={item} />
           </div>
-          <div className="sm:hidden text-3xl p-5" onClick={handeClick}>
+          <div className="md:hidden text-3xl p-5" onClick={handeClick}>
             <IoMenu />
           </div>
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             {isAuthenticated ? <ProfileButton /> : <LoginButton />}
           </div>
         </div>
 
         {/* Small Devices */}
         {!isClosed && (
-          <div className="sm:hidden block bg-primary absolute w-full gap-4">
+          <div className="md:hidden block bg-primary absolute w-full gap-4">
             <div className="px-2">
               <NavbarItems item={item} />
             </div>
