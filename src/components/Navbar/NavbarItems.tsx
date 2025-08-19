@@ -11,7 +11,7 @@ interface Props {
 
 export const NavbarItems = ({ item }: Props) => {
   return (
-    <div className="p-2 flex items-center justify-center text-xl font-medium flex-1 space-x-12">
+    <div className="p-2 flex flex-col sm:flex-row sm:items-center sm:justify-center text-xl font-medium gap-4 sm:gap-12">
       {item.map((item) => (
         <NavLink key={item.name} to={item.link}>
           <span>{item.name}</span>
