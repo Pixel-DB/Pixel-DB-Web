@@ -20,11 +20,13 @@ interface UserResponse {
 const useUser = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isLoading, setisLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       setIsAuthenticated(false);
+      setisLoading(false);
       return;
     }
 
@@ -41,13 +43,15 @@ const useUser = () => {
       } catch (error) {
         console.log("error");
         setIsAuthenticated(false);
+      } finally {
+        setisLoading(false);
       }
     };
 
     fetchUser();
   }, []);
 
-  return { userData, isAuthenticated };
+  return { userData, isAuthenticated, isLoading };
 };
 
 export default useUser;

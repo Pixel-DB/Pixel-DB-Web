@@ -11,6 +11,7 @@ import PixelArtUpload from "./pages/PixelArtUpload";
 import DashboardProfile from "./pages/Dashboard/DashboardProfile";
 import DashboardLayout from "./pages/Dashboard/DashboardLayout";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import ProtectedRoute from "./security/ProtectedRoute";
 
 function App() {
   return (
@@ -22,8 +23,14 @@ function App() {
           <Route path="auth/register" element={<Register />} />
           <Route path="pixelart" element={<PixelArt />} />
           <Route path="pixelart/:id" element={<PixelArtDetail />} />
-          <Route path="pixelart/upload" element={<PixelArtUpload />} />
-          <Route path="dashboard" element={<DashboardLayout />}>
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Dashboard />} />
             <Route path="profile" element={<DashboardProfile />} />
             <Route path="upload" element={<PixelArtUpload />} />
