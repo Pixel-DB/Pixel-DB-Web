@@ -1,4 +1,4 @@
-import Mario from "../../assets/Mario.svg";
+import Mario from "../../../assets/Mario.svg";
 
 const Banner = () => {
   return (
