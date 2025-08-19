@@ -3,6 +3,9 @@ import LoginButton from "./LoginButton";
 import { NavbarItems } from "./NavbarItems";
 import NavbarLogo from "./NavbarLogo";
 import ProfileButton from "./ProfileButton";
+import { IoMenu } from "react-icons/io5";
+import { useState } from "react";
+import { IoIosClose } from "react-icons/io";
 
 const item = [
   {
@@ -25,15 +28,43 @@ const item = [
 
 const Navbar = () => {
   const { isAuthenticated } = useUser();
+  const [isClosed, setIsClosed] = useState(true);
+
+  const handeClick = () => {
+    setIsClosed(!isClosed);
+    console.log(isClosed);
+  };
 
   return (
-    <div className="w-full flex items-center bg-primary justify-center">
-      <div className="w-[1300px] flex items-center">
-        <NavbarLogo />
+    <div className="w-full flex items-center bg-primary justify-center z-60">
+      <div className="w-[1300px]">
+        {/* Big Devices */}
+        <div className="flex flex-row justify-between items-center">
+          <div>
+            <NavbarLogo />
+          </div>
+          <div className="hidden md:block">
+            <NavbarItems item={item} />
+          </div>
+          <div className="md:hidden text-3xl p-5" onClick={handeClick}>
+            {isClosed ? <IoMenu /> : <IoIosClose />}
+          </div>
+          <div className="hidden md:block">
+            {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+          </div>
+        </div>
 
-        <NavbarItems item={item} />
-
-        {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+        {/* Small Devices */}
+        {!isClosed && (
+          <div className="md:hidden block bg-primary absolute w-full gap-4">
+            <div className="px-2">
+              <NavbarItems item={item} />
+            </div>
+            <div className="w-full py-2 px-4">
+              {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
