@@ -55,8 +55,13 @@ const Navbar = () => {
 
         {/* Small Devices */}
         {!isClosed && (
-          <div className="sm:hidden block bg-primary absolute w-full">
-            <NavbarItems item={item} />
+          <div className="sm:hidden block bg-primary absolute w-full gap-4">
+            <div className="px-2">
+              <NavbarItems item={item} />
+            </div>
+            <div className="w-full py-2 px-4">
+              {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+            </div>
           </div>
         )}
       </div>

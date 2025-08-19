@@ -2,7 +2,7 @@ import Button from "../ui/Button/Button";
 
 const LoginButton = () => {
   return (
-    <Button sm color="accent" href="/auth/login">
+    <Button color="accent" href="/auth/login" wFull>
       Login
     </Button>
   );
