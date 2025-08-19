@@ -8,7 +8,9 @@ const PixelArtDetail = () => {
     <div className="flex w-full h-full justify-center items-center flex-row gap-24">
       <div className="w-[600px] h-[600px] objekt-cover my-20">
         <DetailImage
-          url={`http://localhost:3000/pixelart/${PixelArtDetailData?.Data.ID}/picture`}
+          url={`${import.meta.env.VITE_API_URL}/pixelart/${
+            PixelArtDetailData?.Data.ID
+          }/picture`}
         />
       </div>
       <DetailBox
