@@ -2,14 +2,16 @@ import Logo from "../../assets/ColorPalatte.svg";
 
 const FooterCopyright = () => {
   return (
-    <div className="flex items-center">
-      <span className="p-2 sm:block">© 2025</span>
-      <img
-        src={Logo}
-        className="h-7 pl-2 pr-1 hidden sm:block"
-        alt="PixelDB Logo"
-      />
-      <span>PixelDB. All pixel rights reserved.</span>
+    <div className="p-2">
+      <span className="flex items-center gap-2">
+        <span>© 2025</span>
+        <img
+          src={Logo}
+          className="h-7 hidden md:inline-block"
+          alt="PixelDB Logo"
+        />
+        <span>PixelDB. All pixel rights reserved.</span>
+      </span>
     </div>
   );
 };
