@@ -5,6 +5,7 @@ import NavbarLogo from "./NavbarLogo";
 import ProfileButton from "./ProfileButton";
 import { IoMenu } from "react-icons/io5";
 import { useState } from "react";
+import { IoIosClose } from "react-icons/io";
 
 const item = [
   {
@@ -46,7 +47,7 @@ const Navbar = () => {
             <NavbarItems item={item} />
           </div>
           <div className="md:hidden text-3xl p-5" onClick={handeClick}>
-            <IoMenu />
+            {isClosed ? <IoMenu /> : <IoIosClose />}
           </div>
           <div className="hidden md:block">
             {isAuthenticated ? <ProfileButton /> : <LoginButton />}
