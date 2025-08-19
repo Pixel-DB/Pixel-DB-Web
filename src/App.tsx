@@ -7,11 +7,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PixelArt from "./pages/PixelArt";
 import PixelArtDetail from "./pages/PixelArtDetail";
-import PixelArtUpload from "./pages/PixelArtUpload";
 import DashboardProfile from "./pages/Dashboard/DashboardProfile";
 import DashboardLayout from "./pages/Dashboard/DashboardLayout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ProtectedRoute from "./security/ProtectedRoute";
+import DashboardUpload from "./pages/Dashboard/DashboardUpload";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           >
             <Route index element={<Dashboard />} />
             <Route path="profile" element={<DashboardProfile />} />
-            <Route path="upload" element={<PixelArtUpload />} />
+            <Route path="upload" element={<DashboardUpload />} />
           </Route>
           <Route path="*" element={<NoPage />} />
         </Route>

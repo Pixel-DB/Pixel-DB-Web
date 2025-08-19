@@ -11,7 +11,7 @@ interface FieldValues {
   UploadPixelArt: FileList;
 }
 
-const PixelArtUpload = () => {
+const DashboardUpload = () => {
   const {
     register,
     handleSubmit,
@@ -93,4 +93,4 @@ const PixelArtUpload = () => {
   );
 };
 
-export default PixelArtUpload;
+export default DashboardUpload;
