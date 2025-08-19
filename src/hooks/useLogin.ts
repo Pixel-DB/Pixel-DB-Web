@@ -17,7 +17,7 @@ const useLogin = () => {
       })
       .then(function (response) {
         setStatusCode(response.status);
-        localStorage.setItem("token", response.data.data.Token);
+        localStorage.setItem("token", response.data.Token);
       })
       .catch(function (error) {
         setStatusCode(error.status);
