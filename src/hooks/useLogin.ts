@@ -8,7 +8,6 @@ interface LoginData {
 
 const useLogin = () => {
   const [statusCode, setStatusCode] = useState<number | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const login = async (credentials: LoginData) => {
     await apiClient
