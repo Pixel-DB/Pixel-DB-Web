@@ -25,7 +25,7 @@ const DashboardProfile = () => {
 
   return (
     <form
-      className="flex-col gap-4 max-w-[700px] w-full px-7 py-4 border-3d border-2 border-gray-700 rounded-md my-10 mx-5"
+      className="flex-col gap-4 max-w-[700px] w-full px-7 py-4 border-3d border-2 border-gray-700 rounded-md my-10 mx-5 bg-white"
       onSubmit={handleSubmit(onSubmit)}
     >
       <h1 className="w-full text-left text-2xl font-bold">Profile Settings</h1>
