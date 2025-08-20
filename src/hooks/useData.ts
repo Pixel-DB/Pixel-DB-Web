@@ -1,20 +1,36 @@
-import { type AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 
+interface ResponseData {
+  TotalRequests: number;
+  TotalUsers: number;
+  TotalPixelArts: number;
+  TotalGithubStars: number;
+}
+
+interface Response {
+  Status: string;
+  Message: string;
+  Data: ResponseData;
+}
+
 const useData = () => {
-  const [data, setData] = useState<AxiosResponse | null>(null);
+  const [data, setData] = useState<ResponseData | null>(null);
 
   useEffect(() => {
-    apiClient
-      .get("/")
-      .then((res) => {
-        setData(res);
-      })
-      .catch((error) => console.error(error));
+    const fetchData = async () => {
+      try {
+        const response = await apiClient.get<Response>("/");
+        console.log(response);
+        setData(response.data.Data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, []);
 
-  return data;
+  return { data };
 };
 
 export default useData;
