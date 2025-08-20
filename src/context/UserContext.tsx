@@ -26,7 +26,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     } else {
       localStorage.removeItem("user");
     }
-  }, []);
+  }, [user]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

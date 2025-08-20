@@ -14,43 +14,45 @@ import ProtectedRoute from "./security/ProtectedRoute";
 import DashboardUpload from "./pages/Dashboard/DashboardUpload";
 import DashboardSettings from "./pages/Dashboard/DashboardSettings";
 import useUser from "./hooks/useUser";
-import { UserProvider } from "./context/UserContext";
+import { useUserContext } from "./context/UserContext";
+import { useEffect } from "react";
 
 function App() {
   const { userData } = useUser();
+  const { setUser } = useUserContext();
 
-  if (localStorage.getItem("token")) {
-    localStorage.setItem("user", JSON.stringify(userData));
-  }
+  useEffect(() => {
+    if (userData) {
+      setUser(userData);
+    }
+  }, [userData, setUser]);
 
   return (
-    <UserProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="auth/login" element={<Login />} />
-            <Route path="auth/register" element={<Register />} />
-            <Route path="pixelart" element={<PixelArt />} />
-            <Route path="pixelart/:id" element={<PixelArtDetail />} />
-            <Route
-              path="dashboard"
-              element={
-                <ProtectedRoute>
-                  <DashboardLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Dashboard />} />
-              <Route path="profile" element={<DashboardProfile />} />
-              <Route path="upload" element={<DashboardUpload />} />
-              <Route path="settings" element={<DashboardSettings />} />
-            </Route>
-            <Route path="*" element={<NoPage />} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="auth/login" element={<Login />} />
+          <Route path="auth/register" element={<Register />} />
+          <Route path="pixelart" element={<PixelArt />} />
+          <Route path="pixelart/:id" element={<PixelArtDetail />} />
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Dashboard />} />
+            <Route path="profile" element={<DashboardProfile />} />
+            <Route path="upload" element={<DashboardUpload />} />
+            <Route path="settings" element={<DashboardSettings />} />
           </Route>
-        </Routes>
-      </BrowserRouter>
-    </UserProvider>
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

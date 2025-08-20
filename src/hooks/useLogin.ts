@@ -1,3 +1,4 @@
+import { useUserContext } from "@/context/UserContext";
 import apiClient from "@/services/api-client";
 import { useState } from "react";
 
@@ -8,6 +9,7 @@ interface LoginData {
 
 const useLogin = () => {
   const [statusCode, setStatusCode] = useState<number | null>(null);
+  const { setUser } = useUserContext();
 
   const login = async (credentials: LoginData) => {
     await apiClient
@@ -18,6 +20,7 @@ const useLogin = () => {
       .then(function (response) {
         setStatusCode(response.status);
         localStorage.setItem("token", response.data.Token);
+        setUser(response.data.Data);
       })
       .catch(function (error) {
         setStatusCode(error.status);
