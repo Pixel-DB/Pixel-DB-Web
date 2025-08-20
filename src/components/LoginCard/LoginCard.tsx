@@ -39,9 +39,7 @@ const LoginCard = () => {
           </Button>
         </div>
       </div>
-      <div className="pt-2">
-        {statusCode && <Errors onSuccess="/Dashboard">{statusCode}</Errors>}
-      </div>
+      <div className="pt-2">{statusCode && <Errors>{statusCode}</Errors>}</div>
       <div className="max-w-[400px] w-full flex justify-center pt-1 pb-2 text-gray-700">
         <p>
           Don't have an Account?{" "}
