@@ -12,9 +12,21 @@ const Home = () => {
       </div>
       <div className="grid grid-cols-4  max-w-[1200px] w-full mx-auto m-5">
         <StatsBox name="Users" color="accent" count={data?.TotalUsers} />
-        <StatsBox name="Total Requests" color="amber-500" />
-        <StatsBox name="Pixel arts" color="secondary" />
-        <StatsBox name="Github Stars" color="green-500" />
+        <StatsBox
+          name="Total Requests"
+          color="amber-500"
+          count={data?.TotalRequests}
+        />
+        <StatsBox
+          name="Pixel arts"
+          color="secondary"
+          count={data?.TotalPixelArts}
+        />
+        <StatsBox
+          name="Github Stars"
+          color="green-500"
+          count={data?.TotalGithubStars}
+        />
       </div>
     </div>
   );
