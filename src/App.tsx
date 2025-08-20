@@ -13,8 +13,15 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import ProtectedRoute from "./security/ProtectedRoute";
 import DashboardUpload from "./pages/Dashboard/DashboardUpload";
 import DashboardSettings from "./pages/Dashboard/DashboardSettings";
+import useUser from "./hooks/useUser";
 
 function App() {
+  const { userData } = useUser();
+
+  if (localStorage.getItem("token")) {
+    localStorage.setItem("user", JSON.stringify(userData));
+  }
+
   return (
     <BrowserRouter>
       <Routes>
