@@ -1,18 +1,13 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 interface Props {
   children: React.ReactNode;
   onSuccess?: string;
 }
 
-const Errors = ({ children, onSuccess = "/dashboard" }: Props) => {
-  const navigate = useNavigate();
-
+const Errors = ({ children }: Props) => {
   useEffect(() => {
     if (children === 200) {
-      window.location.reload();
-      navigate(onSuccess);
     }
   });
 
