@@ -27,13 +27,16 @@ const item = [
 ];
 
 const Navbar = () => {
-  const { isAuthenticated } = useUser();
   const [isClosed, setIsClosed] = useState(true);
+  const { isAuthenticated } = useUser();
 
   const handeClick = () => {
     setIsClosed(!isClosed);
     console.log(isClosed);
   };
+
+  const userDataString = localStorage.getItem("user");
+  const userData = userDataString ? JSON.parse(userDataString) : null;
 
   return (
     <div className="w-full flex items-center bg-primary justify-center z-60 border-b-1 border-gray-500">
@@ -50,7 +53,11 @@ const Navbar = () => {
             {isClosed ? <IoMenu /> : <IoIosClose />}
           </div>
           <div className="hidden md:block">
-            {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+            {isAuthenticated ? (
+              <ProfileButton>{userData?.Username}</ProfileButton>
+            ) : (
+              <LoginButton />
+            )}
           </div>
         </div>
 
