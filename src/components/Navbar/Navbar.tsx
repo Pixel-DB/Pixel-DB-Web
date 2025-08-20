@@ -1,4 +1,3 @@
-import useUser from "@/hooks/useUser";
 import LoginButton from "./LoginButton";
 import { NavbarItems } from "./NavbarItems";
 import NavbarLogo from "./NavbarLogo";
@@ -6,6 +5,7 @@ import ProfileButton from "./ProfileButton";
 import { IoMenu } from "react-icons/io5";
 import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
+import { useUserContext } from "@/context/UserContext";
 
 const item = [
   {
@@ -28,15 +28,12 @@ const item = [
 
 const Navbar = () => {
   const [isClosed, setIsClosed] = useState(true);
-  const { isAuthenticated } = useUser();
+  const { user } = useUserContext();
 
   const handeClick = () => {
     setIsClosed(!isClosed);
     console.log(isClosed);
   };
-
-  const userDataString = localStorage.getItem("user");
-  const userData = userDataString ? JSON.parse(userDataString) : null;
 
   return (
     <div className="w-full flex items-center bg-primary justify-center z-60 border-b-1 border-gray-500">
@@ -53,8 +50,8 @@ const Navbar = () => {
             {isClosed ? <IoMenu /> : <IoIosClose />}
           </div>
           <div className="hidden md:block">
-            {isAuthenticated ? (
-              <ProfileButton>{userData?.Username}</ProfileButton>
+            {user ? (
+              <ProfileButton>{user.Username}</ProfileButton>
             ) : (
               <LoginButton />
             )}
@@ -68,7 +65,11 @@ const Navbar = () => {
               <NavbarItems item={item} />
             </div>
             <div className="w-full py-2 px-4">
-              {isAuthenticated ? <ProfileButton /> : <LoginButton />}
+              {user ? (
+                <ProfileButton>{user.Username}</ProfileButton>
+              ) : (
+                <LoginButton />
+              )}
             </div>
           </div>
         )}
