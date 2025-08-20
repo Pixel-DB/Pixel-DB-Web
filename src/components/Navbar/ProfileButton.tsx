@@ -1,11 +1,13 @@
-import useUser from "@/hooks/useUser";
 import Button from "../ui/Button/Button";
 
-const LoginButton = () => {
-  const { userData } = useUser();
+interface Props {
+  children?: React.ReactNode;
+}
+
+const LoginButton = ({ children }: Props) => {
   return (
     <Button color="green" href="/auth/login">
-      {userData?.Username}
+      {children}
     </Button>
   );
 };
