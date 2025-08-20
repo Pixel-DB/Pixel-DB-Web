@@ -14,6 +14,7 @@ import ProtectedRoute from "./security/ProtectedRoute";
 import DashboardUpload from "./pages/Dashboard/DashboardUpload";
 import DashboardSettings from "./pages/Dashboard/DashboardSettings";
 import useUser from "./hooks/useUser";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   const { userData } = useUser();
@@ -23,31 +24,33 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="auth/login" element={<Login />} />
-          <Route path="auth/register" element={<Register />} />
-          <Route path="pixelart" element={<PixelArt />} />
-          <Route path="pixelart/:id" element={<PixelArtDetail />} />
-          <Route
-            path="dashboard"
-            element={
-              <ProtectedRoute>
-                <DashboardLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<Dashboard />} />
-            <Route path="profile" element={<DashboardProfile />} />
-            <Route path="upload" element={<DashboardUpload />} />
-            <Route path="settings" element={<DashboardSettings />} />
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="auth/login" element={<Login />} />
+            <Route path="auth/register" element={<Register />} />
+            <Route path="pixelart" element={<PixelArt />} />
+            <Route path="pixelart/:id" element={<PixelArtDetail />} />
+            <Route
+              path="dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Dashboard />} />
+              <Route path="profile" element={<DashboardProfile />} />
+              <Route path="upload" element={<DashboardUpload />} />
+              <Route path="settings" element={<DashboardSettings />} />
+            </Route>
+            <Route path="*" element={<NoPage />} />
           </Route>
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 
