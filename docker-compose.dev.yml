@@ -9,3 +9,10 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    name: PixelDB-dev-network
+    external: true
