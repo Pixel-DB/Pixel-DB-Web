@@ -8,10 +8,8 @@ const Home = () => {
       <div className="flex items-center justify-center w-full">
         <Banner />
       </div>
-      <div>
+      <div className="flex flex-col gap-64">
         <FeaturesContainer />
-      </div>
-      <div>
         <StatsContainer />
       </div>
     </div>
