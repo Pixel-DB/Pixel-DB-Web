@@ -1,7 +1,6 @@
 import "./RegisterCard.css";
 import Input from "../ui/TextInput/Input";
 import Button from "../ui/Button/Button";
-import Errors from "../Errors/RegisterErrors";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import useRegister from "@/hooks/useRegister";
 
@@ -14,7 +13,7 @@ interface FieldValues {
 }
 
 const RegisterCard = () => {
-  const { register: registerUser, statusCode } = useRegister();
+  const { register: registerUser } = useRegister();
   const {
     register: registerForm,
     handleSubmit,
@@ -107,9 +106,6 @@ const RegisterCard = () => {
             Login
           </Button>
         </div>
-      </div>
-      <div className="pt-2">
-        {statusCode && <Errors onSuccess="/">{statusCode}</Errors>}
       </div>
       <div className="max-w-[400px] w-full flex justify-center pt-1 pb-2 text-gray-700">
         <p>
