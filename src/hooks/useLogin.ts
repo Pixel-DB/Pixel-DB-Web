@@ -8,7 +8,6 @@ interface LoginData {
 }
 
 const useLogin = () => {
-  const [statusCode, setStatusCode] = useState<number | null>(null);
   const { setUser } = useUserContext();
 
   const login = async (credentials: LoginData) => {
@@ -18,16 +17,13 @@ const useLogin = () => {
         password: credentials.password,
       })
       .then(function (response) {
-        setStatusCode(response.status);
         localStorage.setItem("token", response.data.Token);
         setUser(response.data.Data);
       })
-      .catch(function (error) {
-        setStatusCode(error.status);
-      });
+      .catch(function (error) {});
   };
 
-  return { login, statusCode };
+  return { login };
 };
 
 export default useLogin;
