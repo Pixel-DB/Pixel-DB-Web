@@ -12,14 +12,23 @@ const defaultToastOptions: ToastOptions = {
   transition: Bounce,
 };
 
-export const SuccessToast = (message: string) => {
+export const SuccessToast = (message: string, options?: ToastOptions) => {
   toast.success(message, {
     ...defaultToastOptions,
+    ...options,
   });
 };
 
-export const ErrorToast = (message: string) => {
+export const ErrorToast = (message: string, options?: ToastOptions) => {
   toast.error(message, {
     ...defaultToastOptions,
+    ...options,
+  });
+};
+
+export const WarnToast = (message: string, options?: ToastOptions) => {
+  toast.error(message, {
+    ...defaultToastOptions,
+    ...options,
   });
 };
