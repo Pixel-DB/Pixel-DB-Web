@@ -26,8 +26,8 @@ export const ErrorToast = (message: string, options?: ToastOptions) => {
   });
 };
 
-export const WarnToast = (message: string, options?: ToastOptions) => {
-  toast.error(message, {
+export const InfoToast = (message: string, options?: ToastOptions) => {
+  toast.info(message, {
     ...defaultToastOptions,
     ...options,
   });
