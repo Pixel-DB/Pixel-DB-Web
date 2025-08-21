@@ -1,6 +1,6 @@
 import { useUserContext } from "@/context/UserContext";
 import apiClient from "@/services/api-client";
-import { useState } from "react";
+import { SuccessToast, ErrorToast } from "@/utils/toast";
 
 interface LoginData {
   email: string;
@@ -17,10 +17,12 @@ const useLogin = () => {
         password: credentials.password,
       })
       .then(function (response) {
-        localStorage.setItem("token", response.data.Token);
+        SuccessToast("Login successful!");
         setUser(response.data.Data);
       })
-      .catch(function (error) {});
+      .catch(() =>
+        ErrorToast("Failed to login, please check your credentials.")
+      );
   };
 
   return { login };
