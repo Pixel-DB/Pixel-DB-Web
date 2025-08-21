@@ -10,7 +10,7 @@ const StatsContainer = () => {
       className="bg-amber-200 flex w-full flex-col p-5 gap-5 border-y-2 border-gray-500"
     >
       <div className="text-center">
-        <h1 className="text-3xl text-black font-bold">
+        <h1 className="text-4xl text-black font-bold">
           Our Journey in Numbers
         </h1>
         <h2 className="text-gray-500 text-base">
