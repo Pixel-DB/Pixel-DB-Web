@@ -1,5 +1,5 @@
 import apiClient from "@/services/api-client";
-import { Bounce, toast } from "react-toastify";
+import { SuccessToast, ErrorToast } from "@/utils/toast";
 
 interface UploadPixelArtData {
   Title: string;
@@ -28,33 +28,11 @@ const useUploadPixelArt = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        console.log("Upload successful:", response);
-        toast.success("Pixel Art uploaded successfully!", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Bounce,
-        });
+      .then(() => {
+        SuccessToast("Pixel Art uploaded successfully!");
       })
-      .catch((error) => {
-        console.error("Upload failed:", error);
-        toast.error("Error uploading Pixel Art!", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Bounce,
-        });
+      .catch(() => {
+        ErrorToast("Failed to upload Pixel Art");
       });
   };
   return { uploadPixelArt };
