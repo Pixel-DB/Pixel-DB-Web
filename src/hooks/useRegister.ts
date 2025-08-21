@@ -1,5 +1,5 @@
 import apiClient from "@/services/api-client";
-import { useState } from "react";
+import { SuccessToast, ErrorToast } from "@/utils/toast";
 
 interface RegisterData {
   email: string;
@@ -10,8 +10,6 @@ interface RegisterData {
 }
 
 const useRegister = () => {
-  const [statusCode, setStatusCode] = useState<number | null>(null);
-
   const register = async (credentials: RegisterData) => {
     await apiClient
       .post("/user", {
@@ -21,16 +19,11 @@ const useRegister = () => {
         firstName: credentials.firstName,
         lastName: credentials.lastName,
       })
-      .then(function (response) {
-        console.log(response);
-        setStatusCode(response.status);
-      })
-      .catch(function (error) {
-        setStatusCode(error.status);
-      });
+      .then(() => SuccessToast("Registration successful! You can now log in."))
+      .catch(() => ErrorToast("Failed to register, please try again."));
   };
 
-  return { register, statusCode };
+  return { register };
 };
 
 export default useRegister;
