@@ -8,7 +8,7 @@ const FeaturesContainer = () => {
     >
       <div className="max-w-[1100px] w-full mx-auto m-5 place-items-center flex flex-col gap-15 p-5">
         <div>
-          <h1 className="text-5xl font-bold">What can PixelDB do?</h1>
+          <h1 className="text-4xl font-bold">What can PixelDB do?</h1>
         </div>
         <div className="grid grid-cols-3 w-full">
           <FeaturesBox
