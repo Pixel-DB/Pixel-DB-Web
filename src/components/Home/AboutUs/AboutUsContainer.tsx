@@ -1,14 +1,14 @@
+import Button from "@/components/ui/Button/Button";
+
 const AboutUsContainer = () => {
   return (
     <section
       id="about"
-      className="w-full border-y-2 border-gray-300 px-6 py-20 flex items-center justify-center"
+      className="w-full px-6 py-20 flex items-center justify-center"
     >
-      <div className="max-w-3xl w-full text-center space-y-10">
+      <div className="max-w-[750px] w-full text-center space-y-10">
         <div className="space-y-3">
-          <h1 className="text-5xl md:text-6xl font-bold text-black">
-            About Us
-          </h1>
+          <h1 className="text-5xl font-bold text-black">About Us</h1>
           <div className="h-1 w-28 mx-auto rounded-full bg-amber-500" />
         </div>
 
@@ -24,6 +24,17 @@ const AboutUsContainer = () => {
             celebrating creativity, connecting people, and giving pixel art the
             spotlight it deserves.
           </p>
+        </div>
+
+        <div className="max-w-[500px] mx-auto">
+          <div className="flex justify-center space-x-5 items-center">
+            <Button wFull color="blue">
+              Explore
+            </Button>
+            <Button wFull color="green">
+              Contribute
+            </Button>
+          </div>
         </div>
       </div>
     </section>
