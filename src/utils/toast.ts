@@ -32,3 +32,10 @@ export const InfoToast = (message: string, options?: ToastOptions) => {
     ...options,
   });
 };
+
+export const WarnToast = (message: string, options?: ToastOptions) => {
+  toast.warn(message, {
+    ...defaultToastOptions,
+    ...options,
+  });
+};
