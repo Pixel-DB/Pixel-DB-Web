@@ -1,14 +1,21 @@
-import Banner from "@/components/Home/Banner/Banner";
-import StatsBox from "@/components/Home/Stats/StatsBox";
 import useData from "@/hooks/useData";
+import StatsBox from "./StatsBox";
 
-const Home = () => {
+const StatsContainer = () => {
   const { data } = useData();
 
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-center w-full">
-        <Banner />
+    <section
+      id="about"
+      className="bg-amber-200 flex w-full flex-col p-5 gap-5 border-y-2 border-gray-500"
+    >
+      <div className="text-center">
+        <h1 className="text-3xl text-black font-bold">
+          Our Journey in Numbers
+        </h1>
+        <h2 className="text-gray-500 text-base">
+          Tracking users, requests, and creative milestones
+        </h2>
       </div>
       <div className="grid grid-cols-4  max-w-[1200px] w-full mx-auto m-5">
         <StatsBox name="Users" color="accent" count={data?.TotalUsers} />
@@ -28,8 +35,8 @@ const Home = () => {
           count={data?.TotalGithubStars}
         />
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Home;
+export default StatsContainer;
