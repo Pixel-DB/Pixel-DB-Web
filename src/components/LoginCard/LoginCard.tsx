@@ -2,7 +2,6 @@ import "./LoginCard.css";
 import Input from "../ui/TextInput/Input";
 import Button from "../ui/Button/Button";
 import useLogin from "@/hooks/useLogin";
-import Errors from "../Errors/LoginErrors";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 interface FieldValues {
@@ -11,7 +10,7 @@ interface FieldValues {
 }
 
 const LoginCard = () => {
-  const { login, statusCode } = useLogin();
+  const { login } = useLogin();
   const { register, handleSubmit } = useForm<FieldValues>();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -38,9 +37,6 @@ const LoginCard = () => {
             Login
           </Button>
         </div>
-      </div>
-      <div className="pt-2">
-        {statusCode && <Errors onSuccess="/Dashboard">{statusCode}</Errors>}
       </div>
       <div className="max-w-[400px] w-full flex justify-center pt-1 pb-2 text-gray-700">
         <p>

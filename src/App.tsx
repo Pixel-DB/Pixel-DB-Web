@@ -13,8 +13,20 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import ProtectedRoute from "./security/ProtectedRoute";
 import DashboardUpload from "./pages/Dashboard/DashboardUpload";
 import DashboardSettings from "./pages/Dashboard/DashboardSettings";
+import useUser from "./hooks/useUser";
+import { useUserContext } from "./context/UserContext";
+import { useEffect } from "react";
 
 function App() {
+  const { userData } = useUser();
+  const { setUser } = useUserContext();
+
+  useEffect(() => {
+    if (userData) {
+      setUser(userData);
+    }
+  }, [userData, setUser]);
+
   return (
     <BrowserRouter>
       <Routes>
