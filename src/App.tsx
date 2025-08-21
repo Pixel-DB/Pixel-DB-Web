@@ -16,6 +16,7 @@ import DashboardSettings from "./pages/Dashboard/DashboardSettings";
 import useUser from "./hooks/useUser";
 import { useUserContext } from "./context/UserContext";
 import { useEffect } from "react";
+import { InfoToast } from "./utils/toast";
 
 function App() {
   const { userData } = useUser();
@@ -26,6 +27,13 @@ function App() {
       setUser(userData);
     }
   }, [userData, setUser]);
+
+  useEffect(() => {
+    InfoToast("This Service is still under Production", {
+      autoClose: false,
+      closeOnClick: true,
+    });
+  }, []);
 
   return (
     <BrowserRouter>
