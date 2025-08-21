@@ -19,6 +19,7 @@ const useLogin = () => {
       .then(function (response) {
         SuccessToast("Login successful!");
         setUser(response.data.Data);
+        localStorage.setItem("token", response.data.Token);
       })
       .catch(() =>
         ErrorToast("Failed to login, please check your credentials.")
