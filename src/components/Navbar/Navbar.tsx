@@ -37,19 +37,27 @@ const Navbar = () => {
 
   return (
     <div className="w-full flex items-center bg-primary justify-center z-60 border-b-1 border-gray-500">
-      <div className="w-[1300px]">
-        {/* Big Devices */}
-        <div className="flex flex-row justify-between items-center">
-          <div>
-            <NavbarLogo />
-          </div>
-          <div className="hidden md:block">
+      {/* Big Devices */}
+      <div className="flex flex-row justify-between items-center max-w-[1300px] w-full">
+        <NavbarLogo />
+        <NavbarItems item={item} />
+        <div className="md:hidden text-3xl p-5" onClick={handeClick}>
+          {isClosed ? <IoMenu /> : <IoIosClose />}
+        </div>
+        {user ? (
+          <ProfileButton>{user.Username}</ProfileButton>
+        ) : (
+          <LoginButton />
+        )}
+      </div>
+
+      {/* Small Devices */}
+      {!isClosed && (
+        <div className="md:hidden block bg-primary absolute w-full gap-4">
+          <div className="px-2">
             <NavbarItems item={item} />
           </div>
-          <div className="md:hidden text-3xl p-5" onClick={handeClick}>
-            {isClosed ? <IoMenu /> : <IoIosClose />}
-          </div>
-          <div className="hidden md:block">
+          <div className="w-full py-2 px-4">
             {user ? (
               <ProfileButton>{user.Username}</ProfileButton>
             ) : (
@@ -57,23 +65,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
-
-        {/* Small Devices */}
-        {!isClosed && (
-          <div className="md:hidden block bg-primary absolute w-full gap-4">
-            <div className="px-2">
-              <NavbarItems item={item} />
-            </div>
-            <div className="w-full py-2 px-4">
-              {user ? (
-                <ProfileButton>{user.Username}</ProfileButton>
-              ) : (
-                <LoginButton />
-              )}
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 };
