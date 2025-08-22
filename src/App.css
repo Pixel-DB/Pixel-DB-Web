@@ -3,7 +3,10 @@
 /* Tailwind CSS Colors */
 @theme {
   --color-text: #00060a; /* Black */
-  --color-background: #fefce8; /* Yellow-White */
+  --color-text-secondary: #374151; /* Gray-700 */
+  --color-text-accent: #f59e0b; /* Amber-500 */
+  --color-background-primary: #f3f4f6; /* Gray-100 */
+  --color-background-secondary: #e5e7eb; /* Gray-200 */
   --color-primary: #ffea40; /* Yellow */
   --color-secondary: #078fff; /* Light Blue */
   --color-accent: #ff817b; /* Light Red */
