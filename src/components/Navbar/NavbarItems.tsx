@@ -11,7 +11,7 @@ export const NavbarItems = ({ name, link, hashlink }: Props) => {
   if (hashlink) {
     return (
       <div className="text-xl font-medium">
-        <HashLink smoth to={link}>
+        <HashLink smooth to={link}>
           <span>{name}</span>
         </HashLink>
       </div>
