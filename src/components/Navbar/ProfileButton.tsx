@@ -6,7 +6,7 @@ interface Props {
 
 const LoginButton = ({ children }: Props) => {
   return (
-    <Button color="green" href="/auth/login">
+    <Button wFull color="green" href="/auth/login">
       {children}
     </Button>
   );
