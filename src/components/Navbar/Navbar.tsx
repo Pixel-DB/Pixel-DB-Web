@@ -32,11 +32,13 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex justify-end w-full p-2">
-          {user ? (
-            <ProfileButton>{user.Username}</ProfileButton>
-          ) : (
-            <LoginButton />
-          )}
+          <div className="w-full max-w-[200px]">
+            {user ? (
+              <ProfileButton>{user.Username}</ProfileButton>
+            ) : (
+              <LoginButton />
+            )}
+          </div>
         </div>
 
         <div className="md:hidden text-3xl p-5" onClick={handeClick}>
@@ -46,14 +48,14 @@ const Navbar = () => {
 
       {/* Small Devices */}
       {!isClosed && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-primary gap-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-primary gap-4 z-60 border-b-1 border-gray-500">
           <div className="px-2">
             <NavbarItems name="Explore" link="/pixelart" />
             <NavbarItems name="Dashboard" link="/dashboard" />
             <NavbarItems name="About" link="/about" />
             <NavbarItems name="Docs" link="/docs" />
           </div>
-          <div className="w-full py-2 px-4">
+          <div className="w-full py-2 mx-2">
             {user ? (
               <ProfileButton>{user.Username}</ProfileButton>
             ) : (
