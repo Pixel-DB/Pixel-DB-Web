@@ -55,7 +55,7 @@ const Navbar = () => {
             <NavbarItems name="About" link="/about" />
             <NavbarItems name="Docs" link="/docs" />
           </div>
-          <div className="w-full py-2 mx-2">
+          <div className="w-full py-2 p-2">
             {user ? (
               <ProfileButton>{user.Username}</ProfileButton>
             ) : (
