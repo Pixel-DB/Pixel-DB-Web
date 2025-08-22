@@ -19,7 +19,7 @@ const LoginCard = () => {
 
   return (
     <form
-      className="bg-white flex flex-col max-w-[450px] w-full rounded-lg border-2 border-slate-800 border-3d"
+      className="bg-white flex flex-col max-w-[450px] w-full rounded-lg border-2 border-slate-800 border-3d m-2"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex justify-center w-full text-3xl font-extrabold text-slate-800 p-5">

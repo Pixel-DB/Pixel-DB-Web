@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="hidden md:flex justify-center flex-row w-full gap-12">
           <NavbarItems name="Explore" link="/pixelart" />
           <NavbarItems name="Dashboard" link="/dashboard" />
-          <NavbarItems name="About" link="#about" hashlink />
+          <NavbarItems name="About" link="/#about" hashlink />
           <NavbarItems name="Docs" link="/docs" />
         </div>
 
@@ -52,10 +52,10 @@ const Navbar = () => {
           <div className="px-2">
             <NavbarItems name="Explore" link="/pixelart" />
             <NavbarItems name="Dashboard" link="/dashboard" />
-            <NavbarItems name="About" link="/about" />
+            <NavbarItems name="About" link="/#about" hashlink />
             <NavbarItems name="Docs" link="/docs" />
           </div>
-          <div className="w-full py-2 mx-2">
+          <div className="w-full py-2 p-2">
             {user ? (
               <ProfileButton>{user.Username}</ProfileButton>
             ) : (

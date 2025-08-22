@@ -17,7 +17,7 @@ const StatsContainer = () => {
           Tracking users, requests, and creative milestones
         </h2>
       </div>
-      <div className="grid grid-cols-4  max-w-[1200px] w-full mx-auto m-5">
+      <div className="grid grid-cols-1 lg:grid-cols-4 max-w-[1200px] w-full mx-auto m-5 gap-5 justify-items-center">
         <StatsBox name="Users" color="accent" count={data?.TotalUsers} />
         <StatsBox
           name="Total Requests"

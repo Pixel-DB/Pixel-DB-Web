@@ -18,7 +18,7 @@ const Banner = () => {
             share, and showcase their pixel art creations with the community.
           </p>
         </div>
-        <div className="w-3/4 flex flex-row gap-4 pt-5">
+        <div className="max-w-[500px] flex flex-col md:flex-row gap-4 pt-5">
           <StartExploring />
           <Register />
         </div>
