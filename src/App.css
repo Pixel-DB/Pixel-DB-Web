@@ -20,7 +20,7 @@
 
 #root {
   font-family: "Comfortaa", sans-serif;
-  background-color: var(--color-background);
+  background-color: var(--color-background-primary);
 }
 
 .border-3d {
