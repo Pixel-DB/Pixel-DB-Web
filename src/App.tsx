@@ -17,6 +17,7 @@ import useUser from "./hooks/useUser";
 import { useUserContext } from "./context/UserContext";
 import { useEffect } from "react";
 import { InfoToast } from "./utils/toast";
+import Docs from "./pages/Docs/Docs";
 
 function App() {
   const { userData } = useUser();
@@ -43,6 +44,7 @@ function App() {
           <Route path="auth/login" element={<Login />} />
           <Route path="auth/register" element={<Register />} />
           <Route path="pixelart" element={<PixelArt />} />
+          <Route path="docs" element={<Docs />} />
           <Route path="pixelart/:id" element={<PixelArtDetail />} />
           <Route
             path="dashboard"
