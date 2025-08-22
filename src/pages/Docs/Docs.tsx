@@ -1,5 +1,7 @@
+import { RedocStandalone } from "redoc";
+
 const Docs = () => {
-  return <div>Docs</div>;
+  return <RedocStandalone specUrl="http://localhost:3000/swagger/doc.json" />;
 };
 
 export default Docs;
