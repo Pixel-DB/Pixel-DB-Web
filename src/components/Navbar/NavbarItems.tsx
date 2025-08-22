@@ -1,22 +1,16 @@
 import { NavLink } from "react-router-dom";
 
-interface NavItem {
+interface Props {
   name: string;
   link: string;
 }
 
-interface Props {
-  item: NavItem[];
-}
-
-export const NavbarItems = ({ item }: Props) => {
+export const NavbarItems = ({ name, link }: Props) => {
   return (
-    <div className="p-2 flex flex-col md:flex-row md:items-center md:justify-center text-xl font-medium gap-4 md:gap-12">
-      {item.map((item) => (
-        <NavLink key={item.name} to={item.link}>
-          <span>{item.name}</span>
-        </NavLink>
-      ))}
+    <div className="text-xl font-medium">
+      <NavLink to={link}>
+        <span>{name}</span>
+      </NavLink>
     </div>
   );
 };

@@ -38,17 +38,29 @@ const Navbar = () => {
   return (
     <div className="w-full flex items-center bg-primary justify-center z-60 border-b-1 border-gray-500">
       {/* Big Devices */}
-      <div className="flex flex-row justify-between items-center max-w-[1300px] w-full">
-        <NavbarLogo />
-        <NavbarItems item={item} />
+      <div className="flex flex-row justify-between items-center max-w-[1200px] w-full px-4">
+        <div className="flex justify-start w-full p-2">
+          <NavbarLogo />
+        </div>
+
+        <div className="flex justify-center w-full gap-12">
+          <NavbarItems name="Explore" link="/pixelart" />
+          <NavbarItems name="Dashboard" link="/dashboard" />
+          <NavbarItems name="About" link="/about" />
+          <NavbarItems name="Docs" link="/docs" />
+        </div>
+
+        <div className="flex justify-end w-full p-2">
+          {user ? (
+            <ProfileButton>{user.Username}</ProfileButton>
+          ) : (
+            <LoginButton />
+          )}
+        </div>
+
         <div className="md:hidden text-3xl p-5" onClick={handeClick}>
           {isClosed ? <IoMenu /> : <IoIosClose />}
         </div>
-        {user ? (
-          <ProfileButton>{user.Username}</ProfileButton>
-        ) : (
-          <LoginButton />
-        )}
       </div>
 
       {/* Small Devices */}
