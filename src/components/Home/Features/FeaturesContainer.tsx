@@ -4,7 +4,7 @@ const FeaturesContainer = () => {
   return (
     <section
       id="features"
-      className="flex justify-center bg-green-300 border-y-2 border-gray-500"
+      className="flex justify-center bg-background-secondary border-y-2 border-gray-500"
     >
       <div className="max-w-[1100px] w-full mx-auto m-5 place-items-center flex flex-col gap-15 p-5">
         <div>
@@ -17,7 +17,7 @@ const FeaturesContainer = () => {
             subtitle="Upload your pixel art and instantly share it with the community"
           />
           <FeaturesBox
-            color="secondary"
+            color="blue-500"
             title="Profiles"
             subtitle="Create your profile, showcase your work, and grow your audience."
           />

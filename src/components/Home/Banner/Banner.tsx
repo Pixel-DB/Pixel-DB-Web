@@ -9,7 +9,7 @@ const Banner = () => {
         <div className="flex flex-col space-y-1 max-w-xl">
           <h1 className="text-5xl md:text-6xl font-normal text-text">
             Welcome to <br />
-            <span className="text-7xl md:text-8xl font-extrabold text-secondary leading-tight">
+            <span className="text-7xl md:text-8xl font-extrabold text-highlight leading-tight">
               PixelDB
             </span>
           </h1>
