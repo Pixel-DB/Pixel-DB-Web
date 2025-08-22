@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
               : type
           }
           accept={accept}
-          className="border-2 border-secondary focus:outline focus:outline-secondary rounded p-2 w-full file:rounded-md file:border-none file:py-1 file:px-2 file:bg-secondary file:text-black file:cursor-pointer file:text-md file:font-bold text-gray-700"
+          className="border-2 border-secondary focus:outline focus:outline-secondary rounded p-2 w-full file:rounded-md file:border-none file:py-1 file:px-2 file:bg-highlight file:text-black file:cursor-pointer file:text-md file:font-bold text-gray-700"
           placeholder={placeholderText[type]}
           {...props}
         />
