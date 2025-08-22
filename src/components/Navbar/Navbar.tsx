@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="hidden md:flex justify-center flex-row w-full gap-12">
           <NavbarItems name="Explore" link="/pixelart" />
           <NavbarItems name="Dashboard" link="/dashboard" />
-          <NavbarItems name="About" link="/about" />
+          <NavbarItems name="About" link="#about" hashlink />
           <NavbarItems name="Docs" link="/docs" />
         </div>
 
