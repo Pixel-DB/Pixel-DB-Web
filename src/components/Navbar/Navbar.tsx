@@ -18,7 +18,7 @@ const item = [
   },
   {
     name: "About",
-    link: "#about",
+    link: "/#about",
   },
   {
     name: "Docs",
