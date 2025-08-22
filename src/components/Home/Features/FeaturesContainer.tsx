@@ -4,7 +4,7 @@ const FeaturesContainer = () => {
   return (
     <section
       id="features"
-      className="flex justify-center bg-background-secondary border-y-2 border-gray-500"
+      className="flex justify-center bg-background-secondary"
     >
       <div className="max-w-[1100px] w-full mx-auto m-5 place-items-center flex flex-col gap-15 p-5">
         <div>
