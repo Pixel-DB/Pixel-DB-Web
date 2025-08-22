@@ -7,7 +7,7 @@ const StatsContainer = () => {
   return (
     <section
       id="about"
-      className="bg-amber-200 flex w-full flex-col p-5 gap-5 border-y-2 border-gray-500"
+      className="bg-background-secondary flex w-full flex-col p-5 gap-5 border-y-2 border-gray-500"
     >
       <div className="text-center">
         <h1 className="text-4xl text-black font-bold">
@@ -26,7 +26,7 @@ const StatsContainer = () => {
         />
         <StatsBox
           name="Pixel arts"
-          color="secondary"
+          color="blue-500"
           count={data?.TotalPixelArts}
         />
         <StatsBox
