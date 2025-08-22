@@ -6,7 +6,7 @@ const StatsContainer = () => {
 
   return (
     <section
-      id="about"
+      id="stats"
       className="bg-background-secondary flex w-full flex-col p-5 gap-5"
     >
       <div className="text-center">
