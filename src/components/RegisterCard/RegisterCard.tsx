@@ -24,7 +24,7 @@ const RegisterCard = () => {
 
   return (
     <form
-      className="bg-white flex flex-col max-w-[450px] w-full rounded-lg border-2 border-slate-800 border-3d"
+      className="bg-white flex flex-col max-w-[450px] w-full rounded-lg border-2 border-slate-800 border-3d m-2"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex justify-center w-full text-3xl font-extrabold text-slate-800 p-5">
@@ -103,7 +103,7 @@ const RegisterCard = () => {
         </div>
         <div className="pt-4">
           <Button color="accent" wFull type="submit">
-            Login
+            Register
           </Button>
         </div>
       </div>
