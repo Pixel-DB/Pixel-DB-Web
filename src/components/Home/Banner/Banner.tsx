@@ -5,7 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const Banner = () => {
+const HeroSection = () => {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -19,7 +19,10 @@ const Banner = () => {
   );
 
   return (
-    <div className="h-[80vh] max-w-[1000px] w-full flex items-center justify-between px-2">
+    <section
+      className="h-[80vh] max-w-[1000px] w-full flex items-center justify-between px-2"
+      id="HeroSection"
+    >
       <div className="flex flex-col">
         <div className="flex flex-col space-y-1 max-w-xl" ref={container}>
           <h2 className="text-5xl md:text-6xl font-normal text-text Welcome ">
@@ -45,8 +48,8 @@ const Banner = () => {
           alt="Color Palette"
         />
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Banner;
+export default HeroSection;

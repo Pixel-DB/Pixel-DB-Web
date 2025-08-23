@@ -1,5 +1,5 @@
 import AboutUsContainer from "@/components/Home/AboutUs/AboutUsContainer";
-import Banner from "@/components/Home/Banner/Banner";
+import HeroSection from "@/components/Home/Banner/Banner";
 import FeaturesContainer from "@/components/Home/Features/FeaturesContainer";
 import StatsContainer from "@/components/Home/Stats/StatsContainer";
 
@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       <div className="flex items-center justify-center w-full">
-        <Banner />
+        <HeroSection />
       </div>
       <div className="flex flex-col">
         <FeaturesContainer />
