@@ -19,7 +19,7 @@ const DashboardSideBarButtons = ({ children, to, end, icon }: Props) => {
           }
         >
           <div className="items-center flex flex-row gap-2">
-            {icon}
+            <span className="text-xl mb-1 text-text-secondary">{icon}</span>
             {children}
           </div>
         </span>
