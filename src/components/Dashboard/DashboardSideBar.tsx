@@ -6,12 +6,18 @@ import { IoPerson } from "react-icons/io5";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
+import gsap from "gsap";
 
 const DashboardSideBar = () => {
   const [isClosed, setIsClosed] = useState(false);
 
   const handleClose = () => {
     setIsClosed(!isClosed);
+    gsap.to(".Arrow", {
+      rotate: isClosed ? 0 : 180,
+      duration: 0.3,
+      ease: "power2.out",
+    });
   };
 
   return (
@@ -25,7 +31,7 @@ const DashboardSideBar = () => {
           Dashboard
         </h1>
         <FaArrowLeft
-          className="text-text-secondary mb-1 cursor-pointer justify-center w-full"
+          className="text-text-secondary mb-1 cursor-pointer justify-center w-full Arrow"
           onClick={handleClose}
         />
       </div>
