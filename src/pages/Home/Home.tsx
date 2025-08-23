@@ -1,5 +1,5 @@
 import AboutUsContainer from "@/components/Home/AboutUs/AboutUsContainer";
-import HeroSection from "@/components/Home/Banner/Banner";
+import HeroSection from "@/components/Home/HeroSection/HeroSection";
 import FeaturesContainer from "@/components/Home/Features/FeaturesContainer";
 import StatsContainer from "@/components/Home/Stats/StatsContainer";
 
