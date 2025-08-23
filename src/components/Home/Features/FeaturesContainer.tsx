@@ -13,7 +13,7 @@ const FeaturesContainer = () => {
       gsap.set(".Box", { opacity: 0, y: 100 });
       gsap.to(".Box", {
         stagger: 0.1,
-        scrollTrigger: ".box",
+        scrollTrigger: ".Box",
         duration: 0.3,
         opacity: 1,
         y: 0,
