@@ -20,7 +20,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="h-[80vh] max-w-[1000px] w-full flex items-center justify-between px-2"
+      className="h-[60vh] max-w-[1000px] w-full flex items-center justify-between px-2"
       id="HeroSection"
     >
       <div className="flex flex-col">
