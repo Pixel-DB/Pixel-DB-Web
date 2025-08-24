@@ -23,7 +23,7 @@ const DashboardSideBar = () => {
   return (
     <>
       <div
-        className="md:hidden w-16 h-16 bg-background-secondary flex justify-center items-center rounded-full left-0 absolute m-5 bottom-20 border border-gray-700"
+        className="md:hidden w-16 h-16 bg-background-secondary flex justify-center items-center rounded-full left-0 m-5 bottom-20 border border-gray-700 fixed"
         onClick={handleClose}
       >
         <FaArrowLeft
