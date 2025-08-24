@@ -23,7 +23,7 @@ const DashboardProfile = () => {
   };
 
   return (
-    <div className="flex-col gap-4 max-w-[700px] w-full px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 mx-1 bg-white">
+    <div className="flex-col gap-4 max-w-[700px] w-full px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 mx-1 bg-white h-full">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1 className="w-full text-left text-2xl font-bold">
           Profile Settings
