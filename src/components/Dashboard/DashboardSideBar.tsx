@@ -21,57 +21,73 @@ const DashboardSideBar = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 p-4 text-xl text-gray-800">
-      <div className="flex flex-row items-center justify-between gap-4 py-4">
-        <h1
-          className={`text-2xl font-bold text-black ${
-            isClosed ? "hidden" : ""
-          }`}
-        >
-          Dashboard
-        </h1>
+    <>
+      <div
+        className="md:hidden w-16 h-16 bg-background-secondary flex justify-center items-center rounded-full left-0 absolute m-5 bottom-20 border border-gray-700"
+        onClick={handleClose}
+      >
         <FaArrowLeft
           className="text-text-secondary mb-1 cursor-pointer justify-center w-full Arrow"
           onClick={handleClose}
         />
       </div>
-      <DashboardSideBarButtons
-        to="/dashboard"
-        icon={<FaHome />}
-        end
-        isClosed={isClosed}
+
+      <div
+        className={`${
+          isClosed ? "hidden" : ""
+        } md:flex flex-col gap-8 p-4 text-xl text-gray-800 shadow-xl/30 h-screen mr-2 border-r-1 border-gray-700 bg-white`}
       >
-        Home
-      </DashboardSideBarButtons>
-      <DashboardSideBarButtons
-        to="/dashboard/profile"
-        icon={<IoPerson />}
-        isClosed={isClosed}
-      >
-        Profile
-      </DashboardSideBarButtons>
-      <DashboardSideBarButtons
-        to="/dashboard/upload"
-        icon={<FaCloudUploadAlt />}
-        isClosed={isClosed}
-      >
-        Upload
-      </DashboardSideBarButtons>
-      <DashboardSideBarButtons
-        to="/dashboard/settings"
-        icon={<IoSettingsSharp />}
-        isClosed={isClosed}
-      >
-        Settings
-      </DashboardSideBarButtons>
-      <DashboardSideBarButtons
-        to="/dashboard/license"
-        icon={<FaBook />}
-        isClosed={isClosed}
-      >
-        License
-      </DashboardSideBarButtons>
-    </div>
+        <div className="flex flex-row items-center justify-between gap-4 py-4">
+          <h1
+            className={`text-2xl font-bold text-black ${
+              isClosed ? "hidden" : ""
+            }`}
+          >
+            Dashboard
+          </h1>
+          <FaArrowLeft
+            className="text-text-secondary mb-1 cursor-pointer justify-center w-full Arrow hidden md:block"
+            onClick={handleClose}
+          />
+        </div>
+        <DashboardSideBarButtons
+          to="/dashboard"
+          icon={<FaHome />}
+          end
+          isClosed={isClosed}
+        >
+          Home
+        </DashboardSideBarButtons>
+        <DashboardSideBarButtons
+          to="/dashboard/profile"
+          icon={<IoPerson />}
+          isClosed={isClosed}
+        >
+          Profile
+        </DashboardSideBarButtons>
+        <DashboardSideBarButtons
+          to="/dashboard/upload"
+          icon={<FaCloudUploadAlt />}
+          isClosed={isClosed}
+        >
+          Upload
+        </DashboardSideBarButtons>
+        <DashboardSideBarButtons
+          to="/dashboard/settings"
+          icon={<IoSettingsSharp />}
+          isClosed={isClosed}
+        >
+          Settings
+        </DashboardSideBarButtons>
+        <DashboardSideBarButtons
+          to="/dashboard/license"
+          icon={<FaBook />}
+          isClosed={isClosed}
+        >
+          License
+        </DashboardSideBarButtons>
+      </div>
+    </>
   );
 };
 
