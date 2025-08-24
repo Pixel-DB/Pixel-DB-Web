@@ -7,7 +7,7 @@ const DashboardLayout = () => {
       <aside className="z-30">
         <DashboardSideBar />
       </aside>
-      <div className="absolute flex w-full justify-center p-2">
+      <div className="absolute flex w-full justify-center">
         <Outlet />
       </div>
     </div>
