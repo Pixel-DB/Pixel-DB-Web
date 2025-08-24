@@ -16,6 +16,7 @@ const FeaturesContainer = () => {
         scrollTrigger: ".Box",
         duration: 0.3,
         opacity: 1,
+        delay: 0.3,
         y: 0,
       });
     },
