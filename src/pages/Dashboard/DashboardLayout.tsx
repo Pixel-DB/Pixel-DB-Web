@@ -8,7 +8,9 @@ const DashboardLayout = () => {
         <DashboardSideBar />
       </aside>
       <div className="absolute flex w-full justify-center">
-        <Outlet />
+        <div className="h-full bg-background-primary">
+          <Outlet />
+        </div>
       </div>
     </div>
   );
