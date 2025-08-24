@@ -29,7 +29,7 @@ const DashboardUpload = () => {
   };
 
   return (
-    <div className="flex justify-center items-center my-10 mx-1 border-3d border-2 border-slate-800 rounded-md max-w-[700px] w-full flex-col bg-white">
+    <div className="flex justify-center items-center my-10 border-3d border-2 border-slate-800 rounded-md max-w-[700px] w-full flex-col bg-white">
       <h1 className="w-full text-2xl text-left font-bold p-4">
         Upload PixelArt
       </h1>
