@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex justify-end w-full p-2 relative">
-            <div className="flex w-full max-w-[200px] bg-background-primary">
+            <div className="flex w-full max-w-[200px]">
               {user ? <ProfileButton /> : <LoginButton />}
             </div>
             <DropdownMenu />
