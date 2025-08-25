@@ -1,14 +1,15 @@
-import Button from "../ui/Button/Button";
+import { useUserContext } from "@/context/UserContext";
 
-interface Props {
-  children?: React.ReactNode;
-}
+const LoginButton = () => {
+  const { user } = useUserContext();
 
-const LoginButton = ({ children }: Props) => {
   return (
-    <Button wFull color="green" href="/auth/login">
-      {children}
-    </Button>
+    <div className="flex flex-row items-center w-full justify-center">
+      <img
+        className="rounded-md"
+        src={`https://ui-avatars.com/api/?background=16a34a&name=${user?.Username}&size=35&length=1&font-size=0.6`}
+      />
+    </div>
   );
 };
 
