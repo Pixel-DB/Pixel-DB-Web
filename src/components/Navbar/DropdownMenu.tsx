@@ -5,11 +5,19 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import DropDownMenuLinks from "./DropDownMenuLinks";
 
-const DropdownMenu = () => {
+interface Props {
+  isClosed: boolean;
+}
+
+const DropdownMenu = ({ isClosed }: Props) => {
   const { user } = useUserContext();
 
   return (
-    <div className="flex justify-center flex-col items-center absolute p-4 bg-background-secondary border border-gray-400 rounded-md top-full mt-4">
+    <div
+      className={`${
+        isClosed ? "hidden" : "block"
+      } flex justify-center flex-col items-center absolute p-4 bg-background-secondary border border-gray-400 rounded-md top-full mt-4`}
+    >
       <div className="flex flex-row items-center gap-2">
         <img
           className="rounded-md"

@@ -1,11 +1,15 @@
 import { useUserContext } from "@/context/UserContext";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
-const LoginButton = () => {
+interface Props {
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
+
+const LoginButton = ({ onClick }: Props) => {
   const { user } = useUserContext();
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex w-full justify-center" onClick={onClick}>
       <div className="flex flex-row rounded-md px-2 py-1 hover:bg-amber-100 items-center">
         <img
           className="rounded-md"
