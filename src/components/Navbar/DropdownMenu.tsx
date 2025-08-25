@@ -1,5 +1,5 @@
 import { useUserContext } from "@/context/UserContext";
-import { NavLink } from "react-router-dom";
+import { IoLogOut } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
@@ -31,6 +31,13 @@ const DropdownMenu = () => {
         <DropDownMenuLinks to="/dashboard/settings" icon={<IoSettingsSharp />}>
           Settings
         </DropDownMenuLinks>
+      </div>
+      <div className="h-[2px] w-16 rounded-full bg-gray-400 m-5"></div>
+      <div className="items-center flex flex-row gap-2 text-left w-full">
+        <span className="text-xl mb-1 text-text-secondary">
+          <IoLogOut />{" "}
+        </span>
+        <span>Logout</span>
       </div>
     </div>
   );
