@@ -7,6 +7,7 @@ import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { useUserContext } from "@/context/UserContext";
 import DropdownMenu from "./DropdownMenu";
+import { gsap } from "gsap";
 
 const Navbar = () => {
   const [isClosed, setIsClosed] = useState(true);
@@ -19,6 +20,11 @@ const Navbar = () => {
 
   const handleProfileClick = () => {
     setIsProfileClosed(!isProfileClosed);
+    gsap.to(".Arrow", {
+      rotate: isProfileClosed ? 180 : 0,
+      duration: 0.3,
+      ease: "power2.out",
+    });
   };
 
   return (
@@ -40,7 +46,7 @@ const Navbar = () => {
           <div className="hidden md:flex justify-end w-full p-2 relative">
             <div className="flex w-full max-w-[200px]">
               {user ? (
-                <ProfileButton onClick={handleProfileClick} />
+                <ProfileButton onClick={handleProfileClick} className="Arrow" />
               ) : (
                 <LoginButton />
               )}
