@@ -10,11 +10,17 @@ import DropdownMenu from "./DropdownMenu";
 
 const Navbar = () => {
   const [isClosed, setIsClosed] = useState(true);
+  const [isProfileClosed, setIsProfileClosed] = useState(true);
   const { user } = useUserContext();
 
   const handeClick = () => {
     setIsClosed(!isClosed);
     console.log(isClosed);
+  };
+
+  const handleProfileClick = () => {
+    setIsProfileClosed(!isProfileClosed);
+    console.log(isProfileClosed);
   };
 
   return (
@@ -35,9 +41,13 @@ const Navbar = () => {
 
           <div className="hidden md:flex justify-end w-full p-2 relative">
             <div className="flex w-full max-w-[200px]">
-              {user ? <ProfileButton /> : <LoginButton />}
+              {user ? (
+                <ProfileButton onClick={handleProfileClick} />
+              ) : (
+                <LoginButton />
+              )}
             </div>
-            <DropdownMenu />
+            <DropdownMenu isClosed={isProfileClosed} />
           </div>
 
           <div className="md:hidden text-3xl p-5" onClick={handeClick}>
