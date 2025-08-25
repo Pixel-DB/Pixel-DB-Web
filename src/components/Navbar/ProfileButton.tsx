@@ -3,9 +3,10 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 interface Props {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
+  className?: string;
 }
 
-const LoginButton = ({ onClick }: Props) => {
+const LoginButton = ({ onClick, className }: Props) => {
   const { user } = useUserContext();
 
   return (
@@ -15,7 +16,7 @@ const LoginButton = ({ onClick }: Props) => {
           className="rounded-md"
           src={`https://ui-avatars.com/api/?background=16a34a&name=${user?.Username}&size=35&length=1&font-size=0.6`}
         />
-        <RiArrowDropDownLine className="text-3xl text-black" />
+        <RiArrowDropDownLine className={`text-3xl text-black ${className}`} />
       </div>
     </div>
   );
