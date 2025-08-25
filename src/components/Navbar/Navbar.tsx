@@ -15,12 +15,10 @@ const Navbar = () => {
 
   const handeClick = () => {
     setIsClosed(!isClosed);
-    console.log(isClosed);
   };
 
   const handleProfileClick = () => {
     setIsProfileClosed(!isProfileClosed);
-    console.log(isProfileClosed);
   };
 
   return (
