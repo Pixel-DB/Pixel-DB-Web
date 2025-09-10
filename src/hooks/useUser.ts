@@ -32,7 +32,7 @@ const useUser = () => {
 
     const fetchUser = async () => {
       try {
-        const response = await apiClient.get<UserResponse>("/user", {
+        const response = await apiClient.get<UserResponse>("/user/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
