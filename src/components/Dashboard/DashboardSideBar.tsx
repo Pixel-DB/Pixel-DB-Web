@@ -92,7 +92,7 @@ const DashboardSideBar = () => {
 
         {(user?.Role == "admin" || user?.Role == "moderator") && (
           <DashboardSideBarButtons
-            to="/dashboard/license"
+            to="/dashboard/admin/users"
             icon={<FaUsers />}
             isClosed={isClosed}
           >
