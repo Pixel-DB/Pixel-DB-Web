@@ -18,6 +18,7 @@ import { useUserContext } from "./context/UserContext";
 import { useEffect } from "react";
 import { InfoToast } from "./utils/toast";
 import Docs from "./pages/Docs/Docs";
+import DashboardAdminUsers from "./pages/Dashboard/Admin/DashboardAdminUsers";
 
 function App() {
   const { userData } = useUser();
@@ -58,6 +59,7 @@ function App() {
             <Route path="profile" element={<DashboardProfile />} />
             <Route path="upload" element={<DashboardUpload />} />
             <Route path="settings" element={<DashboardSettings />} />
+            <Route path="admin/users" element={<DashboardAdminUsers />} />
           </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
