@@ -5,11 +5,14 @@ import { FaHome } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
+import { FaUsers } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import gsap from "gsap";
+import { useUserContext } from "@/context/UserContext";
 
 const DashboardSideBar = () => {
   const [isClosed, setIsClosed] = useState(false);
+  const { user } = useUserContext();
 
   const handleClose = () => {
     setIsClosed(!isClosed);
@@ -86,6 +89,16 @@ const DashboardSideBar = () => {
         >
           License
         </DashboardSideBarButtons>
+
+        {(user?.Role == "admin" || user?.Role == "moderator") && (
+          <DashboardSideBarButtons
+            to="/dashboard/license"
+            icon={<FaUsers />}
+            isClosed={isClosed}
+          >
+            User Moderation
+          </DashboardSideBarButtons>
+        )}
       </div>
     </>
   );
