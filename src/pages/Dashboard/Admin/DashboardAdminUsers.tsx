@@ -1,3 +1,4 @@
+import DashboardAdminDate from "@/components/Dashboard/DashboardAdminDate";
 import { DashboardAdminRole } from "@/components/Dashboard/DashboardAdminRole";
 import Button from "@/components/ui/Button/Button";
 import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
@@ -26,6 +27,7 @@ const DashboardAdminUsers = () => {
               <th className="py-2 px-2 w-48">Email</th>
               <th className="py-2 px-2 w-36">Name</th>
               <th className="py-2 px-2 w-16">Role</th>
+              <th className="py-2 px-2 w-16">Created</th>
               <th className="py-2 px-2 w-40">ID</th>
             </tr>
           </thead>
@@ -42,6 +44,9 @@ const DashboardAdminUsers = () => {
                 </td>
                 <td className="py-2 px-2">
                   <DashboardAdminRole>{item.Role}</DashboardAdminRole>
+                </td>
+                <td className="py-2 px-2">
+                  <DashboardAdminDate>{item.CreatedAt}</DashboardAdminDate>
                 </td>
                 <td className="py-2 px-2 text-sm text-text-secondary font-mono">
                   {item.ID}
