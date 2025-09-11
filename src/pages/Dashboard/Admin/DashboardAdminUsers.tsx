@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { DashboardAdminRole } from "@/components/Dashboard/DashboardAdminRole";
 import Button from "@/components/ui/Button/Button";
 import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
@@ -28,52 +27,22 @@ const DashboardAdminUsers = () => {
               <th className="py-2 px-2 w-36">Name</th>
               <th className="py-2 px-2 w-16">Role</th>
               <th className="py-2 px-2 w-40">ID</th>
-=======
-import useUserList from "@/hooks/useUserList";
-
-const DashboardAdminUsers = () => {
-  const { UserData } = useUserList();
-
-  return (
-    <div className="flex flex-col gap-4 px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 bg-white h-full max-w-[1200px]">
-      <h1 className="w-full text-left text-2xl font-bold">User Moderation</h1>
-      <div className="overflow-x-auto rounded-xl relative">
-        <table className="min-w-full table-auto border-collapse">
-          <thead className="bg-gray-100">
-            <tr className="text-left uppercase font-bold p-5">
-              <th className="py-2 px-2 w-48">Username</th>
-              <th className="py-2 px-2 w-48">Email</th>
-              <th className="py-2 px-2 w-48">Name</th>
-              <th className="py-2 px-2 w-48">Role</th>
-              <th className="py-2 px-2 w-48">ID</th>
->>>>>>> 4b925de (Table Design)
             </tr>
           </thead>
           <tbody>
             {UserData?.Data.items.map((item) => (
-<<<<<<< HEAD
               <tr className="border-b-1 border-gray-100 text-sm" key={item.ID}>
                 <td className="py-2 px-2 items-center">
                   <ProfilePicture size={64}>{item.Username}</ProfilePicture>
                 </td>
-=======
-              <tr
-                className="border-b-1 border-gray-200 text-base"
-                key={item.ID}
-              >
->>>>>>> 4b925de (Table Design)
                 <td className="py-2 px-2">{item.Username}</td>
                 <td className="py-2 px-2">{item.Email}</td>
                 <td className="py-2 px-2">
                   {item.FirstName} {item.LastName}
                 </td>
-<<<<<<< HEAD
                 <td className="py-2 px-2">
                   <DashboardAdminRole>{item.Role}</DashboardAdminRole>
                 </td>
-=======
-                <td className="py-2 px-2">{item.Role}</td>
->>>>>>> 4b925de (Table Design)
                 <td className="py-2 px-2 text-sm text-text-secondary font-mono">
                   {item.ID}
                 </td>
@@ -82,7 +51,6 @@ const DashboardAdminUsers = () => {
           </tbody>
         </table>
       </div>
-<<<<<<< HEAD
       <div className="flex flex-row justify-between items-center w-full">
         <Button
           color="blue"
@@ -104,8 +72,6 @@ const DashboardAdminUsers = () => {
           Next
         </Button>
       </div>
-=======
->>>>>>> 4b925de (Table Design)
     </div>
   );
 };
