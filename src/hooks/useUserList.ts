@@ -34,7 +34,10 @@ const useUserList = () => {
   const [page, setPage] = useState(0);
   const [max_page, setMax_page] = useState(1);
   const token = localStorage.getItem("token");
+<<<<<<< HEAD
   console.log(page);
+=======
+>>>>>>> origin/impl/admin-dashboard
 
   useEffect(() => {
     const fetchUsers = async () => {
