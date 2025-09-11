@@ -1,4 +1,5 @@
 import { DashboardAdminRole } from "@/components/Dashboard/DashboardAdminRole";
+import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
 import useUserList from "@/hooks/useUserList";
 
 const DashboardAdminUsers = () => {
@@ -10,7 +11,8 @@ const DashboardAdminUsers = () => {
       <div className="overflow-x-auto rounded-xl relative w-full border-x-1 border-gray-100">
         <table className="table-fixed border-collapse min-w-[950px]">
           <thead className="bg-gray-100">
-            <tr className="text-left uppercase font-bold p-5">
+            <tr className="text-left uppercase font-bold p-5 text-sm">
+              <th className="py-2 px-2 w-24">Profile Picture</th>
               <th className="py-2 px-2 w-32">Username</th>
               <th className="py-2 px-2 w-48">Email</th>
               <th className="py-2 px-2 w-36">Name</th>
@@ -21,7 +23,9 @@ const DashboardAdminUsers = () => {
           <tbody>
             {UserData?.Data.items.map((item) => (
               <tr className="border-b-1 border-gray-100 text-sm" key={item.ID}>
-                <td className="py-2 px-2">{item.Username}</td>
+                <td className="py-2 px-2 items-center">
+                  <ProfilePicture size={64}>{item.Username}</ProfilePicture>
+                </td>
                 <td className="py-2 px-2">{item.Username}</td>
                 <td className="py-2 px-2">{item.Email}</td>
                 <td className="py-2 px-2">
