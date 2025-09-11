@@ -4,7 +4,15 @@ import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
 import useUserList from "@/hooks/useUserList";
 
 const DashboardAdminUsers = () => {
-  const { UserData } = useUserList();
+  const { UserData, setPage, page } = useUserList();
+
+  const handleNextPage = () => {
+    setPage(page + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setPage(page - 1);
+  };
 
   return (
     <div className="flex-col gap-4 max-w-[350px] sm:max-w-[550px] lg:max-w-[900px] xl:max-w-[1100px] w-full px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 bg-white h-full">
@@ -44,13 +52,25 @@ const DashboardAdminUsers = () => {
         </table>
       </div>
       <div className="flex flex-row justify-between items-center w-full">
-        <Button color="blue">Back</Button>
+        <Button
+          color="blue"
+          onClick={handlePreviousPage}
+          disabled={UserData?.Data.first}
+        >
+          Back
+        </Button>
         {UserData && (
           <h1>
             Page {UserData.Data.page + 1} of {UserData.Data.max_page + 1}
           </h1>
         )}
-        <Button color="amber">Next</Button>
+        <Button
+          color="amber"
+          onClick={handleNextPage}
+          disabled={UserData?.Data.last}
+        >
+          Next
+        </Button>
       </div>
     </div>
   );

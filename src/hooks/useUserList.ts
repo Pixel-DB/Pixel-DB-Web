@@ -34,6 +34,7 @@ const useUserList = () => {
   const [page, setPage] = useState(0);
   const [max_page, setMax_page] = useState(1);
   const token = localStorage.getItem("token");
+  console.log(page);
 
   useEffect(() => {
     const fetchUsers = async () => {
