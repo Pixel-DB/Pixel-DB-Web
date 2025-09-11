@@ -1,22 +1,28 @@
 import { NavLink } from "react-router-dom";
-
-interface NavItem {
-  name: string;
-  link: string;
-}
+import { HashLink } from "react-router-hash-link";
 
 interface Props {
-  item: NavItem[];
+  name: string;
+  link: string;
+  hashlink?: boolean;
 }
 
-export const NavbarItems = ({ item }: Props) => {
+export const NavbarItems = ({ name, link, hashlink }: Props) => {
+  if (hashlink) {
+    return (
+      <div className="text-xl font-medium">
+        <HashLink smooth to={link}>
+          <span>{name}</span>
+        </HashLink>
+      </div>
+    );
+  }
+
   return (
-    <div className="p-2 flex flex-col md:flex-row md:items-center md:justify-center text-xl font-medium gap-4 md:gap-12">
-      {item.map((item) => (
-        <NavLink key={item.name} to={item.link}>
-          <span>{item.name}</span>
-        </NavLink>
-      ))}
+    <div className="text-xl font-medium">
+      <NavLink to={link}>
+        <span>{name}</span>
+      </NavLink>
     </div>
   );
 };
