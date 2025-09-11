@@ -4,16 +4,16 @@ const DashboardAdminUsers = () => {
   const { UserData } = useUserList();
 
   return (
-    <div className="flex flex-col gap-4 px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 bg-white h-full max-w-7xl overflow-hidden">
+    <div className="flex-col gap-4 max-w-[350px] sm:max-w-[550px] lg:max-w-[900px] xl:max-w-[1100px] w-full px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 bg-white h-full">
       <h1 className="w-full text-left text-2xl font-bold">User Moderation</h1>
       <div className="overflow-x-auto rounded-xl relative w-full">
-        <table className="w-full table-auto border-collapse">
+        <table className="table-auto border-collapse min-w-[950px]">
           <thead className="bg-gray-100">
             <tr className="text-left uppercase font-bold p-5">
-              <th className="py-2 px-2 w-40">Username</th>
-              <th className="py-2 px-2 w-40">Email</th>
-              <th className="py-2 px-2 w-40">Name</th>
-              <th className="py-2 px-2 w-40">Role</th>
+              <th className="py-2 px-2 w-32">Username</th>
+              <th className="py-2 px-2 w-48">Email</th>
+              <th className="py-2 px-2 w-36">Name</th>
+              <th className="py-2 px-2 w-16">Role</th>
               <th className="py-2 px-2 w-40">ID</th>
             </tr>
           </thead>
