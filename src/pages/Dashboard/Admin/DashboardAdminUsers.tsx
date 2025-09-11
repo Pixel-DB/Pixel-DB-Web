@@ -1,4 +1,5 @@
 import { DashboardAdminRole } from "@/components/Dashboard/DashboardAdminRole";
+import Button from "@/components/ui/Button/Button";
 import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
 import useUserList from "@/hooks/useUserList";
 
@@ -41,6 +42,15 @@ const DashboardAdminUsers = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="flex flex-row justify-between items-center w-full">
+        <Button color="blue">Back</Button>
+        {UserData && (
+          <h1>
+            Page {UserData.Data.page + 1} of {UserData.Data.max_page + 1}
+          </h1>
+        )}
+        <Button color="amber">Next</Button>
       </div>
     </div>
   );
