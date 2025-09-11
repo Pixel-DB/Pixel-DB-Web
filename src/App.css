@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+/* Tailwind CSS Colors */
+@theme {
+  --color-text: #00060a; /* Black */
+  --color-text-secondary: #374151; /* Gray-700 */
+  --color-text-accent: #f59e0b; /* Amber-500 */
+  --color-background-primary: #f3f4f6; /* Gray-100 */
+  --color-background-secondary: #e5e7eb; /* Gray-200 */
+  --color-primary: #fde68a; /* Amber-200 */
+  --color-highlight: #078fff; /* Light Blue */
+  --color-accent: #ff817b; /* Light Red */
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("./assets/fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+#root {
+  font-family: "Comfortaa", sans-serif;
+  background-color: var(--color-background-primary);
+}
+
+.border-3d {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 0 #333, 2px 7px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  top: 0;
+  transition: top 0.1s, box-shadow 0.1s;
+}
