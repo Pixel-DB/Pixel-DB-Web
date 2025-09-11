@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Login from "./pages/Login";
@@ -17,6 +17,8 @@ import useUser from "./hooks/useUser";
 import { useUserContext } from "./context/UserContext";
 import { useEffect } from "react";
 import { InfoToast } from "./utils/toast";
+import Docs from "./pages/Docs/Docs";
+import DashboardAdminUsers from "./pages/Dashboard/Admin/DashboardAdminUsers";
 
 function App() {
   const { userData } = useUser();
@@ -43,6 +45,7 @@ function App() {
           <Route path="auth/login" element={<Login />} />
           <Route path="auth/register" element={<Register />} />
           <Route path="pixelart" element={<PixelArt />} />
+          <Route path="docs" element={<Docs />} />
           <Route path="pixelart/:id" element={<PixelArtDetail />} />
           <Route
             path="dashboard"
@@ -56,6 +59,7 @@ function App() {
             <Route path="profile" element={<DashboardProfile />} />
             <Route path="upload" element={<DashboardUpload />} />
             <Route path="settings" element={<DashboardSettings />} />
+            <Route path="admin/users" element={<DashboardAdminUsers />} />
           </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
