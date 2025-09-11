@@ -34,10 +34,7 @@ const useUserList = () => {
   const [page, setPage] = useState(0);
   const [max_page, setMax_page] = useState(1);
   const token = localStorage.getItem("token");
-<<<<<<< HEAD
   console.log(page);
-=======
->>>>>>> 4b925de (Table Design)
 
   useEffect(() => {
     const fetchUsers = async () => {
