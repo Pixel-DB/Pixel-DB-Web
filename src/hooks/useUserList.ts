@@ -33,12 +33,18 @@ const useUserList = () => {
   const [UserData, setUserData] = useState<UserResponse | null>(null);
   const [page, setPage] = useState(0);
   const [max_page, setMax_page] = useState(1);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await apiClient.get<UserResponse>(
-          "/user?page=" + page
+          "/user?page=" + page,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
         console.log(response.data);
         setMax_page(response.data.Data.max_page);
