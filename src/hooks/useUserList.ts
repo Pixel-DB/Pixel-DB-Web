@@ -40,7 +40,7 @@ const useUserList = () => {
     const fetchUsers = async () => {
       try {
         const response = await apiClient.get<UserResponse>(
-          "/user/?search=" + search + "&page=" + page,
+          "/admin/?search=" + search + "&page=" + page,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -24,6 +24,9 @@ const DashboardAdminUsers = () => {
         <table className="table-fixed border-collapse min-w-[950px]">
           <thead className="bg-gray-100">
             <tr className="text-left uppercase font-bold p-5 text-sm">
+              <th className="py-2 px-2 w-24">
+                <input type="checkbox"></input>
+              </th>
               <th className="py-2 px-2 w-24">Profile Picture</th>
               <th className="py-2 px-2 w-32">Username</th>
               <th className="py-2 px-2 w-48">Email</th>
