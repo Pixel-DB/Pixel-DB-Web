@@ -4,12 +4,17 @@ import Button from "@/components/ui/Button/Button";
 import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
 import { useUserList, useDeleteUser } from "@/hooks/useAdmin";
 import DashboardAdminUsersAction from "./DashboardAdminUsersAction";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DashboardAdminUsers = () => {
   const { UserData, setPage, page, setSearch } = useUserList();
   const { setDeleteUserID } = useDeleteUser();
   const [selectedUser, setSelectedUser] = useState("");
+  const [users, setUsers] = useState(UserData?.Data.items || []);
+
+  useEffect(() => {
+    setUsers(UserData?.Data.items || []);
+  }, [UserData]);
 
   const handleNextPage = () => {
     setPage(page + 1);
@@ -32,6 +37,7 @@ const DashboardAdminUsers = () => {
   };
   const handleUserDelete = () => {
     console.log("Delete user with ID:", selectedUser);
+    setUsers((prev) => prev.filter((user) => user.ID !== selectedUser));
     setDeleteUserID(selectedUser);
   };
 
@@ -58,7 +64,7 @@ const DashboardAdminUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {UserData?.Data.items.map((item) => (
+            {users.map((item) => (
               <tr className="border-b-1 border-gray-100 text-sm" key={item.ID}>
                 <td className="py-2 px-5 items-center">
                   <input
