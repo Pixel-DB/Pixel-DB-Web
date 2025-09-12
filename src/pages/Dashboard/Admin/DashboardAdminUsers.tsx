@@ -2,12 +2,13 @@ import DashboardAdminDate from "@/components/Dashboard/DashboardAdminDate";
 import { DashboardAdminRole } from "@/components/Dashboard/DashboardAdminRole";
 import Button from "@/components/ui/Button/Button";
 import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
-import useUserList from "@/hooks/useUserList";
+import { useUserList, useDeleteUser } from "@/hooks/useAdmin";
 import DashboardAdminUsersAction from "./DashboardAdminUsersAction";
 import { useState } from "react";
 
 const DashboardAdminUsers = () => {
   const { UserData, setPage, page, setSearch } = useUserList();
+  const { setDeleteUserID } = useDeleteUser();
   const [selectedUser, setSelectedUser] = useState("");
 
   const handleNextPage = () => {
@@ -31,6 +32,7 @@ const DashboardAdminUsers = () => {
   };
   const handleUserDelete = () => {
     console.log("Delete user with ID:", selectedUser);
+    setDeleteUserID(selectedUser);
   };
 
   return (

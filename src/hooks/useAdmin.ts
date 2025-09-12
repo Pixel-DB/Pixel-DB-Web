@@ -40,7 +40,7 @@ const useUserList = () => {
     const fetchUsers = async () => {
       try {
         const response = await apiClient.get<UserResponse>(
-          "/admin/?search=" + search + "&page=" + page,
+          "/admin/user/?search=" + search + "&page=" + page,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -61,4 +61,29 @@ const useUserList = () => {
   return { UserData, setPage, page, max_page, setSearch };
 };
 
-export default useUserList;
+const useDeleteUser = () => {
+  const token = localStorage.getItem("token");
+  const [deleteUserID, setDeleteUserID] = useState<string>("");
+
+  useEffect(() => {
+    const deleteUser = async () => {
+      try {
+        const response = await apiClient.delete<UserResponse>(
+          "/admin/user/" + deleteUserID,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    deleteUser();
+  });
+  return { deleteUserID, setDeleteUserID };
+};
+
+export { useUserList, useDeleteUser };
