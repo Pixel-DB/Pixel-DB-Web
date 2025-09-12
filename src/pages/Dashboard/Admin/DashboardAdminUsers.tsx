@@ -6,7 +6,7 @@ import useUserList from "@/hooks/useUserList";
 import DashboardAdminUsersAction from "./DashboardAdminUsersAction";
 
 const DashboardAdminUsers = () => {
-  const { UserData, setPage, page } = useUserList();
+  const { UserData, setPage, page, setSearch } = useUserList();
 
   const handleNextPage = () => {
     setPage(page + 1);
@@ -19,7 +19,7 @@ const DashboardAdminUsers = () => {
   return (
     <div className="flex-col gap-4 max-w-[350px] sm:max-w-[550px] lg:max-w-[900px] xl:max-w-[1100px] w-full px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 bg-white h-full">
       <h1 className="w-full text-left text-2xl font-bold">User Moderation</h1>
-      <DashboardAdminUsersAction />
+      <DashboardAdminUsersAction onSearchChange={setSearch} />
       <div className="overflow-x-auto rounded-xl relative w-full border-x-1 border-gray-100">
         <table className="table-fixed border-collapse min-w-[950px]">
           <thead className="bg-gray-100">

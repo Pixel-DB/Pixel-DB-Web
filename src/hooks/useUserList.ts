@@ -31,16 +31,16 @@ interface UserResponse {
 
 const useUserList = () => {
   const [UserData, setUserData] = useState<UserResponse | null>(null);
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const [max_page, setMax_page] = useState(1);
   const token = localStorage.getItem("token");
-  console.log(page);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await apiClient.get<UserResponse>(
-          "/user?page=" + page,
+          "/user/?search=" + search + "&page=" + page,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -51,14 +51,14 @@ const useUserList = () => {
         setMax_page(response.data.Data.max_page);
         setUserData(response.data);
       } catch (error) {
-        console.log("error");
+        console.log(error);
       }
     };
 
     fetchUsers();
-  }, [page]);
+  }, [page, search]);
 
-  return { UserData, setPage, page, max_page };
+  return { UserData, setPage, page, max_page, setSearch };
 };
 
 export default useUserList;
