@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
+import { ErrorToast, SuccessToast } from "@/utils/toast";
 
 interface UserItem {
   ID: string;
@@ -31,16 +32,16 @@ interface UserResponse {
 
 const useUserList = () => {
   const [UserData, setUserData] = useState<UserResponse | null>(null);
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const [max_page, setMax_page] = useState(1);
   const token = localStorage.getItem("token");
-  console.log(page);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await apiClient.get<UserResponse>(
-          "/user?page=" + page,
+          "/admin/user/?search=" + search + "&page=" + page,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -51,14 +52,43 @@ const useUserList = () => {
         setMax_page(response.data.Data.max_page);
         setUserData(response.data);
       } catch (error) {
-        console.log("error");
+        console.log(error);
       }
     };
 
     fetchUsers();
-  }, [page]);
+  }, [page, search]);
 
-  return { UserData, setPage, page, max_page };
+  return { UserData, setPage, page, max_page, setSearch };
 };
 
-export default useUserList;
+const useDeleteUser = () => {
+  const token = localStorage.getItem("token");
+  const [deleteUserID, setDeleteUserID] = useState<string>("");
+
+  useEffect(() => {
+    if (!deleteUserID) return;
+
+    const deleteUser = async () => {
+      try {
+        const response = await apiClient.delete<UserResponse>(
+          "/admin/user/" + deleteUserID,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data);
+        SuccessToast("Deleted User successful");
+      } catch (error) {
+        console.error(error);
+        ErrorToast("Failed to delete user");
+      }
+    };
+    deleteUser();
+  }, [deleteUserID]);
+  return { deleteUserID, setDeleteUserID };
+};
+
+export { useUserList, useDeleteUser };

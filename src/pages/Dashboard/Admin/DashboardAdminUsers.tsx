@@ -2,10 +2,19 @@ import DashboardAdminDate from "@/components/Dashboard/DashboardAdminDate";
 import { DashboardAdminRole } from "@/components/Dashboard/DashboardAdminRole";
 import Button from "@/components/ui/Button/Button";
 import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
-import useUserList from "@/hooks/useUserList";
+import { useUserList, useDeleteUser } from "@/hooks/useAdmin";
+import DashboardAdminUsersAction from "./DashboardAdminUsersAction";
+import { useEffect, useState } from "react";
 
 const DashboardAdminUsers = () => {
-  const { UserData, setPage, page } = useUserList();
+  const { UserData, setPage, page, setSearch } = useUserList();
+  const { setDeleteUserID } = useDeleteUser();
+  const [selectedUser, setSelectedUser] = useState("");
+  const [users, setUsers] = useState(UserData?.Data.items || []);
+
+  useEffect(() => {
+    setUsers(UserData?.Data.items || []);
+  }, [UserData]);
 
   const handleNextPage = () => {
     setPage(page + 1);
@@ -15,13 +24,36 @@ const DashboardAdminUsers = () => {
     setPage(page - 1);
   };
 
+  const handleChecked = (ID: string, checked: boolean) => {
+    if (checked) {
+      setSelectedUser(ID);
+    } else {
+      setSelectedUser("");
+    }
+  };
+
+  const handleUserBan = () => {
+    console.log("Ban user with ID:", selectedUser);
+  };
+  const handleUserDelete = () => {
+    console.log("Delete user with ID:", selectedUser);
+    setUsers((prev) => prev.filter((user) => user.ID !== selectedUser));
+    setDeleteUserID(selectedUser);
+  };
+
   return (
     <div className="flex-col gap-4 max-w-[350px] sm:max-w-[550px] lg:max-w-[900px] xl:max-w-[1100px] w-full px-4 py-4 border-3d border-2 border-gray-700 rounded-md my-10 bg-white h-full">
       <h1 className="w-full text-left text-2xl font-bold">User Moderation</h1>
+      <DashboardAdminUsersAction
+        onSearchChange={setSearch}
+        onBanClick={handleUserBan}
+        onDeleteClick={handleUserDelete}
+      />
       <div className="overflow-x-auto rounded-xl relative w-full border-x-1 border-gray-100">
         <table className="table-fixed border-collapse min-w-[950px]">
           <thead className="bg-gray-100">
             <tr className="text-left uppercase font-bold p-5 text-sm">
+              <th className="py-2 px-5 w-8"></th>
               <th className="py-2 px-2 w-24">Profile Picture</th>
               <th className="py-2 px-2 w-32">Username</th>
               <th className="py-2 px-2 w-48">Email</th>
@@ -32,8 +64,16 @@ const DashboardAdminUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {UserData?.Data.items.map((item) => (
+            {users.map((item) => (
               <tr className="border-b-1 border-gray-100 text-sm" key={item.ID}>
+                <td className="py-2 px-5 items-center">
+                  <input
+                    type="checkbox"
+                    onChange={(e) => {
+                      handleChecked(item.ID, e.target.checked);
+                    }}
+                  />
+                </td>
                 <td className="py-2 px-2 items-center">
                   <ProfilePicture size={64}>{item.Username}</ProfilePicture>
                 </td>
