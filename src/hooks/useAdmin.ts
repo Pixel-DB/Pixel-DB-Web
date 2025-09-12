@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
+import { ErrorToast, SuccessToast } from "@/utils/toast";
 
 interface UserItem {
   ID: string;
@@ -66,6 +67,8 @@ const useDeleteUser = () => {
   const [deleteUserID, setDeleteUserID] = useState<string>("");
 
   useEffect(() => {
+    if (!deleteUserID) return;
+
     const deleteUser = async () => {
       try {
         const response = await apiClient.delete<UserResponse>(
@@ -77,12 +80,14 @@ const useDeleteUser = () => {
           }
         );
         console.log(response.data);
+        SuccessToast("Deleted User successful");
       } catch (error) {
         console.error(error);
+        ErrorToast("Failed to delete user");
       }
     };
     deleteUser();
-  });
+  }, [deleteUserID]);
   return { deleteUserID, setDeleteUserID };
 };
 
