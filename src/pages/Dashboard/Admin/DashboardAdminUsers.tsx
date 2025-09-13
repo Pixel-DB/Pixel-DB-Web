@@ -69,6 +69,7 @@ const DashboardAdminUsers = () => {
                 <td className="py-2 px-5 items-center">
                   <input
                     type="checkbox"
+                    checked={selectedUser === item.ID}
                     onChange={(e) => {
                       handleChecked(item.ID, e.target.checked);
                     }}
