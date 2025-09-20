@@ -1,12 +1,9 @@
 import PixelArtCard from "@/components/PixelArtCard/PixelArtCard";
 import Button from "@/components/ui/Button/Button";
 import usePixelArt from "@/hooks/usePixelArt";
-import { useState } from "react";
 
 const PixelArt = () => {
   const { PixelArtData, page, setPage } = usePixelArt();
-  const [BackDisabled] = useState(false);
-  const [NextDisabled] = useState(false);
 
   const handleNextPage = () => {
     setPage(page + 1);
