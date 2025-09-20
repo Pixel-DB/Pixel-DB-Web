@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
+import { ErrorToast, SuccessToast } from "@/utils/toast";
 
 interface UserData {
   CreatedAt: string;
@@ -10,14 +11,21 @@ interface UserData {
   Role: string;
   Username: string;
 }
-
 interface UserResponse {
   Data: UserData;
   Message: string;
   Status: string;
 }
 
-const useUser = () => {
+interface UpdateUserData {
+  Email?: string;
+  Username?: string;
+  FirstName?: string;
+  LastName?: string;
+  Password?: string;
+}
+
+const useGetUser = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setisLoading] = useState<boolean>(true);
@@ -54,4 +62,30 @@ const useUser = () => {
   return { userData, isAuthenticated, isLoading };
 };
 
-export default useUser;
+const useUpdateUser = () => {
+  const token = localStorage.getItem("token");
+  const updateUser = async (userData: UpdateUserData) => {
+    await apiClient
+      .patch(
+        "/user",
+        {
+          email: userData.Email,
+          username: userData.Username,
+          firstName: userData.FirstName,
+          lastName: userData.LastName,
+          password: userData.Password,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(() => SuccessToast("Updated successfully"))
+      .catch(() => ErrorToast("Error updating user"));
+  };
+  return { updateUser };
+};
+
+export { useGetUser, useUpdateUser };

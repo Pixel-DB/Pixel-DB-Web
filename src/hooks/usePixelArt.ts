@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
+import { ErrorToast, SuccessToast } from "@/utils/toast";
+import { useParams } from "react-router-dom";
 
 interface PixelArtItem {
   ID: string;
@@ -10,7 +12,6 @@ interface PixelArtItem {
   Title: string;
   Description: string;
 }
-
 interface PixelArtData {
   items: PixelArtItem[];
   page: number;
@@ -22,14 +23,25 @@ interface PixelArtData {
   first: boolean;
   visible: number;
 }
-
 interface PixelArtResponse {
   Status: string;
   Message: string;
   Data: PixelArtData;
 }
 
-const usePixelArt = () => {
+interface UploadPixelArtData {
+  Title: string;
+  Description: string;
+  UploadPixelArt: FileList;
+}
+
+interface PixelArtDetailResponse {
+  Status: string;
+  Message: string;
+  Data: PixelArtItem;
+}
+
+const useGetPixelArtList = () => {
   const [PixelArtData, setPixelArtData] = useState<PixelArtResponse | null>(
     null
   );
@@ -37,7 +49,7 @@ const usePixelArt = () => {
   const [max_page, setMax_page] = useState(1);
 
   useEffect(() => {
-    const fetchPixelArt = async () => {
+    const fetchPixelArtList = async () => {
       try {
         const response = await apiClient.get<PixelArtResponse>(
           "/pixelart?page=" + page
@@ -50,10 +62,65 @@ const usePixelArt = () => {
       }
     };
 
-    fetchPixelArt();
+    fetchPixelArtList();
   }, [page]);
 
   return { PixelArtData, setPage, page, max_page };
 };
 
-export default usePixelArt;
+const useUploadPixelArt = () => {
+  const token = localStorage.getItem("token");
+
+  const uploadPixelArt = async (Data: UploadPixelArtData) => {
+    const formData = new FormData();
+    formData.append("pixelart", Data.UploadPixelArt[0]);
+    formData.append(
+      "meta",
+      JSON.stringify({
+        PixelArtName: Data.Title,
+        PixelArtDescription: Data.Description,
+      })
+    );
+
+    await apiClient
+      .post("pixelart", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        SuccessToast("Pixel Art uploaded successfully!");
+      })
+      .catch(() => {
+        ErrorToast("Failed to upload Pixel Art");
+      });
+  };
+  return { uploadPixelArt };
+};
+
+const useGetPixelArtDetail = () => {
+  const [PixelArtDetailData, setPixelArtDetailData] =
+    useState<PixelArtDetailResponse | null>(null);
+  const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    const fetchPixelArt = async () => {
+      try {
+        const response = await apiClient.get<PixelArtDetailResponse>(
+          `/pixelart/${id}`
+        );
+        console.log(response.data);
+        setPixelArtDetailData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchPixelArt();
+  }, []);
+
+  return { PixelArtDetailData };
+};
+
+export { useGetPixelArtList, useUploadPixelArt, useGetPixelArtDetail };

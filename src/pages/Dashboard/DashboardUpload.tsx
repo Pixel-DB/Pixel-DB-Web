@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button/Button";
 import TextArea from "@/components/ui/TextArea/TextArea";
 import Input from "@/components/ui/TextInput/Input";
-import useUploadPixelArt from "@/hooks/useUploadPixelArt";
+import { useUploadPixelArt } from "@/hooks/usePixelArt";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 interface FieldValues {

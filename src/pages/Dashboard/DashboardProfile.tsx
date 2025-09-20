@@ -1,16 +1,16 @@
 import "../../App.css";
 import Input from "@/components/ui/TextInput/Input";
 import Button from "@/components/ui/Button/Button";
-import useUpdateUser from "@/hooks/useUpdateUser";
+import { useUpdateUser } from "@/hooks/useUser";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useUserContext } from "@/context/UserContext";
 
 interface FieldValues {
-  email?: string;
-  username?: string;
-  firstName?: string;
-  lastName?: string;
-  password?: string;
+  Email?: string;
+  Username?: string;
+  FirstName?: string;
+  LastName?: string;
+  Password?: string;
 }
 
 const DashboardProfile = () => {
@@ -46,33 +46,33 @@ const DashboardProfile = () => {
             type="email"
             placeholder={user?.Email}
             label="Edit email"
-            {...register("email")}
+            {...register("Email")}
           />
           <Input
             type="username"
             placeholder={user?.Username}
             label="Edit username"
-            {...register("username")}
+            {...register("Username")}
           />
           <div className="flex flex-row w-full space-x-4">
             <Input
               type="firstName"
               placeholder={user?.FirstName}
               label="Edit first name"
-              {...register("firstName")}
+              {...register("FirstName")}
             />
             <Input
               type="lastName"
               placeholder={user?.LastName}
               label="Edit last name"
-              {...register("lastName")}
+              {...register("LastName")}
             />
           </div>
           <Input
             type="password"
             placeholder="Enter your new password"
             label="Change password"
-            {...register("password")}
+            {...register("Password")}
           />
         </div>
         <div className="w-full flex justify-end pt-5">

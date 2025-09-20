@@ -1,8 +1,8 @@
-import useUser from "@/hooks/useUser";
+import { useGetUser } from "@/hooks/useUser";
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { isAuthenticated, isLoading } = useUser();
+  const { isAuthenticated, isLoading } = useGetUser();
 
   if (isLoading) {
     return null;

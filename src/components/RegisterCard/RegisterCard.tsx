@@ -2,7 +2,7 @@ import "./RegisterCard.css";
 import Input from "../ui/TextInput/Input";
 import Button from "../ui/Button/Button";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import useRegister from "@/hooks/useRegister";
+import { useRegister } from "@/hooks/useAuth";
 
 interface FieldValues {
   email: string;
