@@ -1,17 +1,12 @@
 import PixelArtCard from "@/components/PixelArtCard/PixelArtCard";
 import Button from "@/components/ui/Button/Button";
 import usePixelArt from "@/hooks/usePixelArt";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const PixelArt = () => {
-  const { PixelArtData, page, setPage, max_page } = usePixelArt();
-  const [BackDisabled, setBackDisabled] = useState(false);
-  const [NextDisabled, setNextDisabled] = useState(false);
-
-  useEffect(() => {
-    setBackDisabled(page <= 1);
-    setNextDisabled(max_page <= page);
-  }, [page, max_page]);
+  const { PixelArtData, page, setPage } = usePixelArt();
+  const [BackDisabled] = useState(false);
+  const [NextDisabled] = useState(false);
 
   const handleNextPage = () => {
     setPage(page + 1);
@@ -39,7 +34,7 @@ const PixelArt = () => {
             w-full
             color="blue"
             onClick={handlePreviousPage}
-            disabled={BackDisabled}
+            disabled={PixelArtData?.Data.first}
           >
             Back
           </Button>
@@ -48,7 +43,7 @@ const PixelArt = () => {
             wFull
             color="amber"
             onClick={handleNextPage}
-            disabled={NextDisabled}
+            disabled={PixelArtData?.Data.last}
           >
             Next
           </Button>
