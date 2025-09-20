@@ -91,4 +91,34 @@ const useDeleteUser = () => {
   return { deleteUserID, setDeleteUserID };
 };
 
-export { useUserList, useDeleteUser };
+const useBanUser = () => {
+  const token = localStorage.getItem("token");
+  const [banUserID, setBanUserID] = useState<string>("");
+
+  useEffect(() => {
+    if (!banUserID) return;
+
+    const banUser = async () => {
+      try {
+        const response = await apiClient.patch<UserResponse>(
+          "/admin/user/" + banUserID + "/ban",
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response.data);
+        SuccessToast("Banned User successful");
+      } catch (error) {
+        console.error(error);
+        ErrorToast("Failed to ban user");
+      }
+    };
+    banUser();
+  }, [banUserID]);
+  return { banUserID, setBanUserID };
+};
+
+export { useUserList, useDeleteUser, useBanUser };

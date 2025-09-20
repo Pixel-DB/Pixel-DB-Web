@@ -2,13 +2,14 @@ import DashboardAdminDate from "@/components/Dashboard/DashboardAdminDate";
 import { DashboardAdminRole } from "@/components/Dashboard/DashboardAdminRole";
 import Button from "@/components/ui/Button/Button";
 import ProfilePicture from "@/components/ui/ProfilePicture/ProfilePicture";
-import { useUserList, useDeleteUser } from "@/hooks/useAdmin";
+import { useUserList, useDeleteUser, useBanUser } from "@/hooks/useAdmin";
 import DashboardAdminUsersAction from "./DashboardAdminUsersAction";
 import { useEffect, useState } from "react";
 
 const DashboardAdminUsers = () => {
   const { UserData, setPage, page, setSearch } = useUserList();
   const { setDeleteUserID } = useDeleteUser();
+  const { setBanUserID } = useBanUser();
   const [selectedUser, setSelectedUser] = useState("");
   const [users, setUsers] = useState(UserData?.Data.items || []);
 
@@ -34,6 +35,7 @@ const DashboardAdminUsers = () => {
 
   const handleUserBan = () => {
     console.log("Ban user with ID:", selectedUser);
+    setBanUserID(selectedUser);
   };
   const handleUserDelete = () => {
     console.log("Delete user with ID:", selectedUser);
@@ -69,6 +71,7 @@ const DashboardAdminUsers = () => {
                 <td className="py-2 px-5 items-center">
                   <input
                     type="checkbox"
+                    checked={selectedUser === item.ID}
                     onChange={(e) => {
                       handleChecked(item.ID, e.target.checked);
                     }}
