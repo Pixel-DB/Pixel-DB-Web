@@ -1,9 +1,9 @@
 import PixelArtCard from "@/components/PixelArtCard/PixelArtCard";
 import Button from "@/components/ui/Button/Button";
-import usePixelArt from "@/hooks/usePixelArt";
+import { useGetPixelArtList } from "@/hooks/usePixelArt";
 
 const PixelArt = () => {
-  const { PixelArtData, page, setPage } = usePixelArt();
+  const { PixelArtData, page, setPage } = useGetPixelArtList();
 
   const handleNextPage = () => {
     setPage(page + 1);
