@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
 import { ErrorToast, SuccessToast } from "@/utils/toast";
+import { useParams } from "react-router-dom";
 
 interface PixelArtItem {
   ID: string;
@@ -11,7 +12,6 @@ interface PixelArtItem {
   Title: string;
   Description: string;
 }
-
 interface PixelArtData {
   items: PixelArtItem[];
   page: number;
@@ -23,7 +23,6 @@ interface PixelArtData {
   first: boolean;
   visible: number;
 }
-
 interface PixelArtResponse {
   Status: string;
   Message: string;
@@ -36,6 +35,12 @@ interface UploadPixelArtData {
   UploadPixelArt: FileList;
 }
 
+interface PixelArtDetailResponse {
+  Status: string;
+  Message: string;
+  Data: PixelArtItem;
+}
+
 const useGetPixelArtList = () => {
   const [PixelArtData, setPixelArtData] = useState<PixelArtResponse | null>(
     null
@@ -44,7 +49,7 @@ const useGetPixelArtList = () => {
   const [max_page, setMax_page] = useState(1);
 
   useEffect(() => {
-    const fetchPixelArt = async () => {
+    const fetchPixelArtList = async () => {
       try {
         const response = await apiClient.get<PixelArtResponse>(
           "/pixelart?page=" + page
@@ -57,7 +62,7 @@ const useGetPixelArtList = () => {
       }
     };
 
-    fetchPixelArt();
+    fetchPixelArtList();
   }, [page]);
 
   return { PixelArtData, setPage, page, max_page };
@@ -94,4 +99,28 @@ const useUploadPixelArt = () => {
   return { uploadPixelArt };
 };
 
-export { useGetPixelArtList, useUploadPixelArt };
+const useGetPixelArtDetail = () => {
+  const [PixelArtDetailData, setPixelArtDetailData] =
+    useState<PixelArtDetailResponse | null>(null);
+  const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    const fetchPixelArt = async () => {
+      try {
+        const response = await apiClient.get<PixelArtDetailResponse>(
+          `/pixelart/${id}`
+        );
+        console.log(response.data);
+        setPixelArtDetailData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchPixelArt();
+  }, []);
+
+  return { PixelArtDetailData };
+};
+
+export { useGetPixelArtList, useUploadPixelArt, useGetPixelArtDetail };
