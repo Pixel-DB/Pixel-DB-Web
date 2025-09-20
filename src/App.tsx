@@ -13,7 +13,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import ProtectedRoute from "./security/ProtectedRoute";
 import DashboardUpload from "./pages/Dashboard/DashboardUpload";
 import DashboardSettings from "./pages/Dashboard/DashboardSettings";
-import useUser from "./hooks/useUser";
+import { useGetUser } from "./hooks/useUser";
 import { useUserContext } from "./context/UserContext";
 import { useEffect } from "react";
 import { InfoToast } from "./utils/toast";
@@ -21,7 +21,7 @@ import Docs from "./pages/Docs/Docs";
 import DashboardAdminUsers from "./pages/Dashboard/Admin/DashboardAdminUsers";
 
 function App() {
-  const { userData } = useUser();
+  const { userData } = useGetUser();
   const { setUser } = useUserContext();
 
   useEffect(() => {
