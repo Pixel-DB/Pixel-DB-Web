@@ -1,7 +1,7 @@
 import "./LoginCard.css";
 import Input from "../ui/TextInput/Input";
 import Button from "../ui/Button/Button";
-import useLogin from "@/hooks/useLogin";
+import { useLogin } from "@/hooks/useAuth";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 interface FieldValues {
