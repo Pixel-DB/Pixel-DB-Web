@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import apiClient from "@/services/api-client";
+import { ErrorToast, SuccessToast } from "@/utils/toast";
 
 interface PixelArtItem {
   ID: string;
@@ -29,7 +30,13 @@ interface PixelArtResponse {
   Data: PixelArtData;
 }
 
-const usePixelArt = () => {
+interface UploadPixelArtData {
+  Title: string;
+  Description: string;
+  UploadPixelArt: FileList;
+}
+
+const useGetPixelArtList = () => {
   const [PixelArtData, setPixelArtData] = useState<PixelArtResponse | null>(
     null
   );
@@ -56,4 +63,35 @@ const usePixelArt = () => {
   return { PixelArtData, setPage, page, max_page };
 };
 
-export default usePixelArt;
+const useUploadPixelArt = () => {
+  const token = localStorage.getItem("token");
+
+  const uploadPixelArt = async (Data: UploadPixelArtData) => {
+    const formData = new FormData();
+    formData.append("pixelart", Data.UploadPixelArt[0]);
+    formData.append(
+      "meta",
+      JSON.stringify({
+        PixelArtName: Data.Title,
+        PixelArtDescription: Data.Description,
+      })
+    );
+
+    await apiClient
+      .post("pixelart", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        SuccessToast("Pixel Art uploaded successfully!");
+      })
+      .catch(() => {
+        ErrorToast("Failed to upload Pixel Art");
+      });
+  };
+  return { uploadPixelArt };
+};
+
+export { useGetPixelArtList, useUploadPixelArt };
