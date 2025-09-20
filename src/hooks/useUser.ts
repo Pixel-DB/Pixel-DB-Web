@@ -17,7 +17,7 @@ interface UserResponse {
   Status: string;
 }
 
-const useUser = () => {
+const useGetUser = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setisLoading] = useState<boolean>(true);
@@ -54,4 +54,4 @@ const useUser = () => {
   return { userData, isAuthenticated, isLoading };
 };
 
-export default useUser;
+export { useGetUser };
